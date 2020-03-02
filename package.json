@@ -1,0 +1,17 @@
+{
+  "name": "express-testing",
+  "version": "1.0.0",
+  "description": "Simple application to test express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Antonio Sánchez Hipona",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.11",
+    "pug": "^2.0.3"
+  }
+}
