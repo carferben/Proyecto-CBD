@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h2 #{title}
+    each article in articles
+        #article(style="background-color:lightblue")
+            p #[strong Título:] #{article.title}
+            p #[strong Cuerpo:] #{article.body}
+            p #[strong Autor:] #{article.author}

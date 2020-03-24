@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel='stylesheet' href='/css/bootstrap-grid.min.css')
+    link(rel='stylesheet' href='/css/bootstrap-reboot.min.css')
+    link(rel='stylesheet' href='/css/bootstrap.min.css')
+    link(rel='stylesheet' href='/css/styles.css')
+    script(src="/js/jquery.min.js")
+    script(src="/js/popper.min.js")
+    script(src="/js/bootstrap.bundle.min.js")
+    script(src="/js/bootstrap.min.js")
+
+  body
+    div.jumbotron.m-0
+      h1 Potato Market
+
+    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
+        span.navbar-toggler-icon
+      div.collapse.navbar-collapse(id="collapsibleNavbar")
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Página Principal
+          li.nav-item
+            a.nav-link(href='/article/list') Lista de artículos
+          li.nav-item
+            a.nav-link(href='/article/add') Añadir Artículo
+
+    block content
+    br
+    hr
+    footer
+      - var date = new Date();
+      p Fecha actual: #{date.getDate()}/#{date.getMonth()+1}/#{date.getFullYear()} #{date.getHours()}:#{date.getMinutes()}
