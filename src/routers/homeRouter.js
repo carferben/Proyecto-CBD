@@ -2,12 +2,12 @@ var express = require("express");
 var router = express.Router();
 const Tienda = require("../models/tienda");
 
-// Añadir post
 router.get("/", (req, res) => {
   Tienda.find({}, (err, tiendas) => {
     if (err) {
       console.error(err);
     } else {
+      res.locals.isAuthenticated = req.isAuthenticated();
       res.render("index", {
         tiendas: tiendas
       });

@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  div.container
+    p #{message}
+    form(method="post")
+      div.form-group
+        label(for='nombre_de_usuario') Nombre de usuario:
+        input#nombre_de_usuario.form-control(type='text' placeholder='paco123' name='nombre_de_usuario' required='true')
+      div.form-group
+        label(for='password') Contraseña:
+        input#password.form-control(type='password' placeholder='************' name='password' required='true')
+      div.form-group
+        label(for='email') Email:
+        input#email.form-control(type='text' placeholder='paco123@gmail.com' name='email' required='true')
+      div.form-group
+        label(for='nombre') Nombre:
+        input#nombre.form-control(type='text' placeholder='Francisco' name='nombre' required='true')
+      div.form-group
+        label(for='apellidos') Apellidos:
+        input#apellidos.form-control(type='text' placeholder='López Limones' name='apellidos' required='true')
+      div.form-group
+        label(for='dni') DNI:
+        input#dni.form-control(type='text' placeholder='12345678A' name='dni' required='true')
+      button.btn.btn-primary(type='submit') Enviar

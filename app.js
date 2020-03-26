@@ -1,38 +1,49 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const path = require("path");
-const homeRouter = require("./src/routers/homeRouter");
-const tiendaRouter = require("./src/routers/tiendaRouter");
+var express = require("express");
+var passport = require("passport");
+var path = require("path");
+var homeRouter = require("./src/routers/homeRouter");
+var usuarioRouter = require("./src/routers/usuarioRouter")(passport);
+var tiendaRouter = require("./src/routers/tiendaRouter");
+var bodyParser = require("body-parser");
+var session = require("express-session");
+var flash = require("connect-flash");
+var cookieParser = require("cookie-parser");
+var Usuario = require("./src/models/usuario");
 require("dotenv").config();
-// Conectamos con la base de datos
-mongoose.connect(
-  "mongodb://" +
-    process.env.DB_USER +
-    ":" +
-    process.env.DB_PASSWORD +
-    "@" +
-    process.env.DB_HOST +
-    "/" +
-    process.env.DB_NAME,
-  { useCreateIndex: true, useNewUrlParser: true }
-);
-const db = mongoose.connection;
 
-// Comprobamos la conexión
-db.once("open", () => {
-  console.log("Connected to MongoDB");
-});
-
-// Comprobamos si hay errores en la base de datos
-db.on("error", err => {
-  console.error(err);
-});
+// Conectamos la base de datos
+var db = require("./db");
+db.connectDB();
 
 // Iniciamos la aplicación
-const app = express();
+var app = express();
 
 // Archivos estáticos
 app.use(express.static(__dirname + "/public"));
+
+// Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false
+  })
+);
+
+// Initialize Passport
+var initPassport = require("./src/passport/init");
+initPassport(passport);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Using the flash middleware provided by connect-flash to store messages in session
+// and displaying in templates
+app.use(flash());
 
 // Cargamos el motor de vista
 app.set("views", path.join(__dirname, "src/views"));
@@ -41,6 +52,7 @@ app.set("view engine", "pug");
 // Routes
 app.use("/", homeRouter);
 app.use("/tienda", tiendaRouter);
+app.use("/usuario", usuarioRouter);
 
 // Iniciamos el servidor
 const port = 3000;

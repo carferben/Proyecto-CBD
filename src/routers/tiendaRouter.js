@@ -3,7 +3,6 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const Tienda = require("../models/tienda");
 
-// Añadir post
 router.get("/add", (req, res) => {
   // var tienda1 = new Tienda({
   //   _id: new mongoose.Types.ObjectId(),

@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  div.container
+    form(method="post")
+      div.form-group
+        label(for='nombre_de_usuario') Nombre de usuario:
+        input#nombre_de_usuario.form-control(type='text' placeholder='paco123' name='nombre_de_usuario' required='true')
+      div.form-group
+        label(for='password') Contraseña:
+        input#password.form-control(type='password' placeholder='************' name='password' required='true')
+      button.btn.btn-primary(type='submit') Enviar

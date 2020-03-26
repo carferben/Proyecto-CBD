@@ -31,6 +31,14 @@ html
                   a.nav-link(href="#") Vestidos
                   a.nav-link(href="#") Pantalones
                   a.nav-link(href="#") Zapatos
+          unless isAuthenticated
+            li.nav-item
+              a.nav-link(href='/usuario/registro') Registro de usuario
+            li.nav-item
+              a.nav-link(href='/usuario/entrar') Entrar
+          if isAuthenticated
+            li.nav-item
+              a.nav-link(href='/usuario/salir') Salir
     block content
     hr
     footer
