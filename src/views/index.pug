@@ -3,23 +3,30 @@ extends layout
 block content
   div.container
     div.row
-      div.col-sm-4
-        h3 Enlaces
-        ul.nav.nav-pills.flex-column
-          li.nav-item
-            a.nav-link(href="#") Patatas
-          li.nav-item
-            a.nav-link(href="#") Cebollas
-          li.nav-item
-            a.nav-link(href="#") Nabos
-      div.col-sm-8
+      div.col-sm-12
         h3 Tiendas
-        each tienda in tiendas
-          #article(style="background-color:lightblue")
-            p #[strong Nombre:] #{tienda.nombre}
-            p #[strong Descripcion:] #{tienda.descripcion}
-            p #[strong Email:] #{tienda.email}
-            p #[strong Imagen:] #{tienda.imagen}
-            p #[strong Ciudad:] #{tienda.ciudad}
-            p #[strong Calle:] #{tienda.calle}
-            p #[strong Código postal:] #{tienda.codigo_postal}
+        div.card-deck
+          each tienda in tiendas
+            div.card
+              img.card-img-top(src=tienda.imagen)
+              div.card-body
+                h5.card-title.text-center #{tienda.nombre}
+                p.card-text #{tienda.descripcion}
+                p.card-text.m-0 
+                  small.text-muted Email: #{tienda.email}
+                p.card-text.m-0 
+                  small.text-muted Ciudad: #{tienda.ciudad}
+                p.card-text.m-0 
+                  small.text-muted Código postal: #{tienda.codigo_postal}
+                p.card-text.m-0 
+                  small.text-muted Calle: #{tienda.calle}
+
+
+          //- #article(style="background-color:lightblue")
+          //-   p #[strong Nombre:] #{tienda.nombre}
+          //-   p #[strong Descripcion:] #{tienda.descripcion}
+          //-   p #[strong Email:] #{tienda.email}
+          //-   p #[strong Imagen:] #{tienda.imagen}
+          //-   p #[strong Ciudad:] #{tienda.ciudad}
+          //-   p #[strong Calle:] #{tienda.calle}
+          //-   p #[strong Código postal:] #{tienda.codigo_postal}
