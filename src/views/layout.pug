@@ -6,6 +6,7 @@ html
     link(rel='stylesheet' href='/css/bootstrap-reboot.min.css')
     link(rel='stylesheet' href='/css/bootstrap.min.css')
     link(rel='stylesheet' href='/css/styles.css')
+    link(href='https://fonts.googleapis.com/css?family=Fira Sans' rel='stylesheet')
     script(src="/js/jquery.min.js")
     script(src="/js/popper.min.js")
     script(src="/js/bootstrap.bundle.min.js")
@@ -13,20 +14,26 @@ html
 
   body
     div.jumbotron.m-0
-      h1 Potato Market
+      h1.text-center Potato Market
 
     nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
         span.navbar-toggler-icon
-      div.collapse.navbar-collapse(id="collapsibleNavbar")
+      div.collapse.navbar-collapse.justify-content-center(id="collapsibleNavbar")
         ul.navbar-nav
           li.nav-item
             a.nav-link(href='/') Página Principal
           li.nav-item
             a.nav-link(href='/article/list') Lista de artículos
+              ul.navbar-nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+                li.nav-item
+                  a.nav-link(href="#") Camisetas
+                  a.nav-link(href="#") Vestidos
+                  a.nav-link(href="#") Pantalones
+                  a.nav-link(href="#") Zapatos
           li.nav-item
             a.nav-link(href='/article/add') Añadir Artículo
-
+    br
     block content
     br
     hr
