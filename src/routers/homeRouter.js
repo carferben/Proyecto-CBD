@@ -1,11 +1,18 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+const Tienda = require("../models/tienda");
 
 // Añadir post
 router.get("/", (req, res) => {
-    res.render("index", {
-        title: "Página Principal"
-    });
+  Tienda.find({}, (err, tiendas) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.render("index", {
+        tiendas: tiendas
+      });
+    }
+  });
 });
 
 module.exports = router;

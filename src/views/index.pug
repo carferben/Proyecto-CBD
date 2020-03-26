@@ -13,5 +13,13 @@ block content
           li.nav-item
             a.nav-link(href="#") Nabos
       div.col-sm-8
-        h3 Patatas
-        p COMER PATATAS ES IMPORTANTE PARA TU VIDA :) 123456789
+        h3 Tiendas
+        each tienda in tiendas
+          #article(style="background-color:lightblue")
+            p #[strong Nombre:] #{tienda.nombre}
+            p #[strong Descripcion:] #{tienda.descripcion}
+            p #[strong Email:] #{tienda.email}
+            p #[strong Imagen:] #{tienda.imagen}
+            p #[strong Ciudad:] #{tienda.ciudad}
+            p #[strong Calle:] #{tienda.calle}
+            p #[strong Código postal:] #{tienda.codigo_postal}

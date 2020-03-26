@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const homeRouter = require("./src/routers/homeRouter");
-const articleRouter = require("./src/routers/articleRouter");
-require('dotenv').config()
+const tiendaRouter = require("./src/routers/tiendaRouter");
+require("dotenv").config();
 // Conectamos con la base de datos
 mongoose.connect(
   "mongodb://" +
@@ -14,7 +14,7 @@ mongoose.connect(
     process.env.DB_HOST +
     "/" +
     process.env.DB_NAME,
-  { useNewUrlParser: true }
+  { useCreateIndex: true, useNewUrlParser: true }
 );
 const db = mongoose.connection;
 
@@ -40,7 +40,7 @@ app.set("view engine", "pug");
 
 // Routes
 app.use("/", homeRouter);
-app.use("/article", articleRouter);
+app.use("/tienda", tiendaRouter);
 
 // Iniciamos el servidor
 const port = 3000;
