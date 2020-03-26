@@ -4,8 +4,7 @@ block content
   div.container
     div.row
       div.col-sm-12
-        h2.text-center Tiendas disponibles
-        br
+        h2.text-center Nuestras tiendas
         div.card-deck
           each tienda in tiendas
             div.card
@@ -14,16 +13,16 @@ block content
                 h3.card-title.text-center #{tienda.nombre}
                 p.card-text #{tienda.descripcion}
                 div.row
-                    div.col-sm-12
-                      div.jumbotron.card
-                        h5.text-center Contacta con nosotros
-                        p.card-text.m-0 
-                          small.text-muted Email: #{tienda.email}
-                        p.card-text.m-0 
-                          small.text-muted Ciudad: #{tienda.ciudad}
-                        p.card-text.m-0 
-                          small.text-muted Código postal: #{tienda.codigo_postal}
-                        p.card-text
-                          small.text-muted Calle: #{tienda.calle}
-                        button.btn Ver más
+                  div.col-sm-12
+                    div.jumbotron.card
+                      h5.text-center Contacta con nosotros
+                      p.card-text.m-0 
+                        small.text-muted Email: #{tienda.email}
+                      p.card-text.m-0 
+                        small.text-muted Ciudad: #{tienda.ciudad}
+                      p.card-text.m-0 
+                        small.text-muted Código postal: #{tienda.codigo_postal}
+                      p.card-text
+                        small.text-muted Calle: #{tienda.calle}
+                      button.btn Ver más
 

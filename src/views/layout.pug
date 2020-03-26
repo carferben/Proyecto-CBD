@@ -13,10 +13,10 @@ html
     script(src="/js/bootstrap.min.js")
 
   body
-    div.jumbotron.m-0
+    div.jumbotron.m-0.p-5
       h1.text-center Potato Market
 
-    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
         span.navbar-toggler-icon
       div.collapse.navbar-collapse.justify-content-center(id="collapsibleNavbar")
@@ -31,11 +31,7 @@ html
                   a.nav-link(href="#") Vestidos
                   a.nav-link(href="#") Pantalones
                   a.nav-link(href="#") Zapatos
-          li.nav-item
-            a.nav-link(href='/article/add') Añadir Artículo
-    br
     block content
-    br
     hr
     footer
       - var date = new Date();
