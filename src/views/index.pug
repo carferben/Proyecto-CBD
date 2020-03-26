@@ -4,29 +4,26 @@ block content
   div.container
     div.row
       div.col-sm-12
-        h3 Tiendas
+        h2.text-center Tiendas disponibles
+        br
         div.card-deck
           each tienda in tiendas
             div.card
               img.card-img-top(src=tienda.imagen)
               div.card-body
-                h5.card-title.text-center #{tienda.nombre}
+                h3.card-title.text-center #{tienda.nombre}
                 p.card-text #{tienda.descripcion}
-                p.card-text.m-0 
-                  small.text-muted Email: #{tienda.email}
-                p.card-text.m-0 
-                  small.text-muted Ciudad: #{tienda.ciudad}
-                p.card-text.m-0 
-                  small.text-muted Código postal: #{tienda.codigo_postal}
-                p.card-text.m-0 
-                  small.text-muted Calle: #{tienda.calle}
+                div.row
+                    div.col-sm-12
+                      div.jumbotron.card
+                        h5.text-center Contacta con nosotros
+                        p.card-text.m-0 
+                          small.text-muted Email: #{tienda.email}
+                        p.card-text.m-0 
+                          small.text-muted Ciudad: #{tienda.ciudad}
+                        p.card-text.m-0 
+                          small.text-muted Código postal: #{tienda.codigo_postal}
+                        p.card-text
+                          small.text-muted Calle: #{tienda.calle}
+                        button.btn Ver más
 
-
-          //- #article(style="background-color:lightblue")
-          //-   p #[strong Nombre:] #{tienda.nombre}
-          //-   p #[strong Descripcion:] #{tienda.descripcion}
-          //-   p #[strong Email:] #{tienda.email}
-          //-   p #[strong Imagen:] #{tienda.imagen}
-          //-   p #[strong Ciudad:] #{tienda.ciudad}
-          //-   p #[strong Calle:] #{tienda.calle}
-          //-   p #[strong Código postal:] #{tienda.codigo_postal}
