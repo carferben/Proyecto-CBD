@@ -2,27 +2,24 @@ extends layout
 
 block content
   div.container
-    div.row
-      div.col-sm-12
-        h2.text-center Nuestras tiendas
-        div.card-deck
-          each tienda in tiendas
-            div.card
-              img.card-img-top(src=tienda.imagen)
-              div.card-body
-                h3.card-title.text-center #{tienda.nombre}
-                p.card-text #{tienda.descripcion}
-                div.row
-                  div.col-sm-12
-                    div.jumbotron.card
-                      h5.text-center Contacta con nosotros
-                      p.card-text.m-0 
-                        small.text-muted Email: #{tienda.email}
-                      p.card-text.m-0 
-                        small.text-muted Ciudad: #{tienda.ciudad}
-                      p.card-text.m-0 
-                        small.text-muted Código postal: #{tienda.codigo_postal}
-                      p.card-text
-                        small.text-muted Calle: #{tienda.calle}
-                      button.btn Ver más
+    h2.text-center Nuestras tiendas
+    div.card-deck
+      each tienda in tiendas
+        div.col-md-12.col-lg-6.d-flex.align-items-stretch.pb-3
+          div.card
+            img.card-img-top(src=tienda.imagen)
+            div.card-body
+              h3.card-title.text-center #{tienda.nombre}
+              p.card-text #{tienda.descripcion}
+            div.card-footer.m-0
+              h5.text-center Contacta con nosotros
+              p.card-text.m-0 
+                small.text-muted Email: #{tienda.email}
+              p.card-text.m-0 
+                small.text-muted Ciudad: #{tienda.ciudad}
+              p.card-text.m-0 
+                small.text-muted Código postal: #{tienda.codigo_postal}
+              p.card-text
+                small.text-muted Calle: #{tienda.calle}
+              button.btn Ver más
 
