@@ -13,9 +13,10 @@ html
     script(src="/js/bootstrap.min.js")
 
   body
-    div.jumbotron.m-0.p-5
-      h1.text-center Potato Market
-
+    div.jumbotron.m-0.p-5.text-center
+      h1 Potato Market
+      if isAuthenticated
+        p.m-0.p-0.float-left ¡Bienvenid@ #{user.nombre}!
     nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
         span.navbar-toggler-icon
