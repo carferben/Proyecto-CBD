@@ -1,0 +1,55 @@
+extends ../layout
+
+block style
+  link(rel='stylesheet' href='/css/form.css')
+  
+block content
+  div.container.p-0
+    p #{message}
+    div.col-sm-12.col-md-10.col-lg-8.mx-auto
+      form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+        h4.text-center.mb-4 Crea tu tienda
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text Nombre:
+            input#nombre.form-control(type='text' placeholder='Acme Jardines' name='nombre' required='true')
+
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text Descripción:
+            textarea#descripcion.form-control(placeholder='Especializados en decoración para patios y jardines.' name='descripcion' required='true')
+
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text Email:
+            input#email.form-control(type='email' placeholder='acmejardines@gmail.com' name='email' required='true')
+
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text Imagen:
+            input#imagen.form-control(type='url' placeholder='https://images.pexels.com/photos/1684004/pexels-photo-1684004.jpeg' name='imagen' required='true')
+
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text Ciudad:
+            input#ciudad.form-control(type='text' placeholder='Carmona, Sevilla' name='ciudad' required='true')
+
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text Calle:
+            input#calle.form-control(type='text' placeholder='Calle Hilanderos 13' name='calle' required='true')   
+
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text Código postal:
+            input#codigo_postal.form-control(type='text' placeholder='41410' name='codigo_postal' required='true')
+
+        div.text-center
+          button.btn(type='submit') Enviar
