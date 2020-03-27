@@ -1,6 +1,7 @@
 extends ../layout
 block style
   link(rel='stylesheet' href='/css/form.css')
+  
 block content
 
   div.container.p-0
@@ -9,14 +10,12 @@ block content
         h4.text-center.mb-4 Iniciar sesión
 
         div.form-group
-          label.sr-only(for='nombre_de_usuario') Nombre de usuario:
           div.input-group.mb-2
             div.input-group-prepend
               div.input-group-text Usuario: 
             input#nombre_de_usuario.form-control(type='text' placeholder='paco123' name='nombre_de_usuario' required='true')
 
         div.form-group
-          label.sr-only(for='password') Contraseña:
           div.input-group.mb-2
             div.input-group-prepend
               div.input-group-text Contraseña:

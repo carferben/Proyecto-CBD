@@ -34,7 +34,7 @@ const tiendaSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  usuario: { type: Schema.Types.ObjectId, ref: 'Usuario' }
+  usuario: { type: Schema.Types.ObjectId, ref: "Usuario" }
 });
 
 const Tienda = (module.exports = mongoose.model("Tienda", tiendaSchema));

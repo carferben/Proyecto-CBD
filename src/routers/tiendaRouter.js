@@ -14,24 +14,33 @@ router.get("/mostrar/:id", (req, res) => {
   });
 });
 
+router.get("/crear", (req, res) => {
+  if (!req.user || req.user.rol != "TIENDA") return res.redirect("/");
+  else res.render("tienda/crear");
+});
 
-router.get("/add", (req, res) => {
-  // var tienda1 = new Tienda({
-  //   _id: new mongoose.Types.ObjectId(),
-  //   nombre: "Acme Jardines",
-  //   descripcion: "Especializados en decoración para patios y jardines.",
-  //   email: "acmejardines@gmail.com",
-  //   imagen:
-  //     "https://losjardinesdekyoto.com/wp-content/uploads/2016/05/los-jardines-de-kyoto-tienda.jpg",
-  //   ciudad: "Carmona, Sevilla",
-  //   calle: "Calle Hilanderos 13",
-  //   codigo_postal: "41410"
-  // });
-  // tienda1.save(err => {
-  //   if (err) {
-  //     console.error(err);
-  //   }
-  // });
+router.post("/crear", function(req, res) {
+  if (!req.user || req.user.rol != "TIENDA") return res.redirect("/");
+  else {
+    tienda = new Tienda();
+
+    tienda._id = new mongoose.Types.ObjectId();
+    tienda.nombre = req.body.nombre;
+    tienda.descripcion = req.body.descripcion;
+    tienda.email = req.body.email;
+    tienda.imagen = req.body.imagen;
+    tienda.ciudad = req.body.ciudad;
+    tienda.calle = req.body.calle;
+    tienda.codigo_postal = req.body.codigo_postal;
+    tienda.usuario = req.user._id;
+
+    tienda.save(function(err) {
+      if (err) {
+        console.log("Error al crear la tienda: " + err);
+        throw err;
+      } else return res.redirect("/");
+    });
+  }
 });
 
 module.exports = router;
