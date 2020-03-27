@@ -45,6 +45,14 @@ app.use(passport.session());
 // and displaying in templates
 app.use(flash());
 
+app.use(function(req, res, next) {
+  user = new Usuario();
+  if (req.user) user = req.user;
+  res.locals.user = user;
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
+
 // Cargamos el motor de vista
 app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "pug");

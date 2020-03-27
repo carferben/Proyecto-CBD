@@ -7,7 +7,6 @@ router.get("/", (req, res) => {
     if (err) {
       console.error(err);
     } else {
-      res.locals.isAuthenticated = req.isAuthenticated();
       res.render("index", {
         tiendas: tiendas
       });
