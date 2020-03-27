@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const Tienda = require("../models/tienda");
 
 router.get("/mostrar/:id", (req, res) => {
-  console.log(req.params.id)
   Tienda.findById(req.params.id, function(err, tienda){
     if(err) {
       throw err;

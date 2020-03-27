@@ -19,7 +19,10 @@ html
 
   body
     div.jumbotron.m-0.p-3.text-center
-      h1 Potato Market
+      div.d-flex.flex-row.justify-content-center
+        h1.mr-2
+          i.fas.fa-shopping-bag 
+        h1 #{tienda.nombre}
     nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
         span.navbar-toggler-icon
@@ -27,12 +30,14 @@ html
         ul.navbar-nav
           li.nav-item
             a.nav-link(href='/') Página Principal
-          unless isAuthenticated
-            li.nav-item
-              a.nav-link(href='/usuario/entrar') Iniciar sesión
-          if isAuthenticated
-            li.nav-item
-              a.nav-link(href='/usuario/salir') Salir
+          li.nav-item
+            a.nav-link(href='/article/list') Lista de artículos
+              ul.navbar-nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+                li.nav-item
+                  a.nav-link(href="#") Camisetas
+                  a.nav-link(href="#") Vestidos
+                  a.nav-link(href="#") Pantalones
+                  a.nav-link(href="#") Zapatos
     block content
     hr
     footer

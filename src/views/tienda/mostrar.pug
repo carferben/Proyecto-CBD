@@ -1,4 +1,25 @@
 extends ../layout-tienda
 
 block content
-  div.container
+  div.container-fluid
+    div.row.bg-faded
+
+      div.col-md-5.pl-md-5
+        div.card.card-body.h-100.justify-content-center.p-0
+          img.card-img-top.h-100(src=tienda.imagen)
+      
+      div.col-md-7.pr-md-5
+        div.card.h-100
+          div.card-body
+            h3.card-title.text-center #{tienda.nombre}
+            hr
+            p.card-text #{tienda.descripcion} 
+          div.card-footer
+            p.card-text.m-0 
+              small.text-muted Email: #{tienda.email}
+            p.card-text.m-0 
+              small.text-muted Ciudad: #{tienda.ciudad}
+            p.card-text.m-0 
+              small.text-muted Código postal: #{tienda.codigo_postal}
+            p.card-text.m-0 
+              small.text-muted Calle: #{tienda.calle} 
