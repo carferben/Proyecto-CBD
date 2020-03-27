@@ -33,7 +33,8 @@ const tiendaSchema = mongoose.Schema({
   codigo_postal: {
     type: String,
     required: true
-  }
+  },
+  usuario: { type: Schema.Types.ObjectId, ref: 'Usuario' }
 });
 
 const Tienda = (module.exports = mongoose.model("Tienda", tiendaSchema));
