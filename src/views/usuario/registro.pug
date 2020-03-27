@@ -1,25 +1,66 @@
 extends ../layout
 
+
 block content
-  div.container
+  div.container.form
     p #{message}
     form(method="post")
-      div.form-group
-        label(for='nombre_de_usuario') Nombre de usuario:
-        input#nombre_de_usuario.form-control(type='text' placeholder='paco123' name='nombre_de_usuario' required='true')
-      div.form-group
-        label(for='password') Contraseña:
-        input#password.form-control(type='password' placeholder='************' name='password' required='true')
-      div.form-group
-        label(for='email') Email:
-        input#email.form-control(type='text' placeholder='paco123@gmail.com' name='email' required='true')
-      div.form-group
-        label(for='nombre') Nombre:
-        input#nombre.form-control(type='text' placeholder='Francisco' name='nombre' required='true')
-      div.form-group
-        label(for='apellidos') Apellidos:
-        input#apellidos.form-control(type='text' placeholder='López Limones' name='apellidos' required='true')
-      div.form-group
-        label(for='dni') DNI:
-        input#dni.form-control(type='text' placeholder='12345678A' name='dni' required='true')
-      button.btn.btn-primary(type='submit') Enviar
+      div.row
+        div.col-sm-12
+          p.text-center Registro como dueño de una tienda
+          div.form-group
+            div.col-auto
+              label.sr-only(for='nombre_de_usuario') Nombre de usuario:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text 
+                      i.fa.fa-user-circle.fa-fw
+                  input#nombre_de_usuario.form-control(type='text' placeholder='Username'  name='nombre_de_usuario' required='true')
+          
+          div.form-group
+            div.col-auto
+              label.sr-only(for='password') Contraseña:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text
+                      i.fa.fa-key.fa-fw
+                  input#password.form-control(type='text' placeholder='Contraseña'  name='password' required='true')
+          
+          div.form-group
+            div.col-auto
+              label.sr-only(for='email') Email:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text
+                      i.fa.fa-at.fa-fw
+                  input#email.form-control(type='text' placeholder='Email'  name='email' required='true')
+
+          div.form-group
+            div.col-auto
+              label.sr-only(for='nombre') Nombre:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text
+                      i.fas.fa-user-alt.fa-fw
+                  input#nombre.form-control(type='text' placeholder='Nombre'  name='nombre' required='true')
+          
+          div.form-group
+            div.col-auto
+              label.sr-only(for='apellidos') Apellidos:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text
+                      i.fas.fa-user-alt.fa-fw
+                  input#apellidos.form-control(type='text' placeholder='Apellidos'  name='apellidos' required='true')
+
+          div.form-group
+            div.col-auto
+              label.sr-only(for='dni') DNI:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text
+                      i.fa.fa-id-card.fa-fw
+                  input#dni.form-control(type='text' placeholder='DNI'  name='dni' required='true')   
+          
+          div.text-center
+            button.btn(type='submit') Enviar
