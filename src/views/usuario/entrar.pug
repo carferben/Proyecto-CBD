@@ -1,12 +1,30 @@
 extends ../layout
-
+block style
+  link(rel='stylesheet' href='/css/form.css')
 block content
   div.container
     form(method="post")
+      h4.text-center.mb-4 Iniciar sesión
       div.form-group
-        label(for='nombre_de_usuario') Nombre de usuario:
-        input#nombre_de_usuario.form-control(type='text' placeholder='paco123' name='nombre_de_usuario' required='true')
+        div.form-group
+            div.col-auto
+              label.sr-only(for='nombre_de_usuario') Nombre de usuario:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text Usuario: 
+                  input#nombre_de_usuario.form-control(type='text' placeholder='paco123'  name='nombre_de_usuario' required='true')
+          
       div.form-group
-        label(for='password') Contraseña:
-        input#password.form-control(type='password' placeholder='************' name='password' required='true')
-      button.btn.btn-primary(type='submit') Enviar
+        div.form-group
+            div.col-auto
+              label.sr-only(for='password') Contraseña:
+              div.input-group.mb-2
+                  div.input-group-prepend
+                    div.input-group-text Contraseña:
+                  input#password.form-control(type='text' placeholder='**********'  name='password' required='true')
+
+      div.text-center.mb-4
+        button.btn(type='submit') Iniciar sesión
+
+      p.text-center.mb-4 ¿Aún no tienes cuenta? 
+        a(href='/usuario/registro') Regístrate
