@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  div.container.p-0
+    p #{message}
+    div.col-sm-12.col-md-10.col-lg-8.mx-auto
+      form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+        h4.text-center.mb-4 #{tienda.nombre}
+
+        div.form-group
+          label(for='nombre') Nombre
+          input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' value=tienda.nombre required='true')
+
+        div.form-group
+          label(for='descripcion') Descripción
+          textarea#descripcion.form-control(placeholder='Especializados en decoración para patios y jardines.' name='descripcion'  required='true')
+            | #{tienda.descripcion}
+
+        div.form-group
+          label(for="email") Email
+          input#email.form-control(type='email' placeholder='acmejardines@gmail.com' name='email' value=tienda.email required='true')
+
+        div.form-group
+          label(for="imagen") Imagen
+          input#imagen.form-control(type='url' placeholder='https://images.pexels.com/photos/1684004/pexels-photo-1684004.jpeg' value=tienda.imagen name='imagen' required='true')
+
+        div.form-group
+          label(for="ciudad") Ciudad
+          input#ciudad.form-control(type='text' placeholder='Carmona, Sevilla' name='ciudad' value=tienda.ciudad required='true')
+
+        div.form-group
+          label(for="calle") Calle
+          input#calle.form-control(type='text' placeholder='Calle Hilanderos 13' name='calle' value=tienda.calle required='true')   
+
+        div.form-group
+          label(for="codigo_postal") Código postal
+          input#codigo_postal.form-control(type='text' placeholder='41410' name='codigo_postal' value=tienda.codigo_postal required='true')
+        
+        div.text-center
+          button.btn(type='submit') Guardar

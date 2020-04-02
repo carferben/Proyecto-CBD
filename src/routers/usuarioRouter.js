@@ -43,15 +43,15 @@ module.exports = function(passport) {
 
 router.get("/editar", (req, res) => {
   usuario = req.user;
-  if (!usuario) return res.redirect("/");
+  if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
   else res.render("usuario/editar", {usuario: usuario});
 });
 
 router.post("/editar", function(req, res) {
-  if (!req.user) return res.redirect("/");
+  usuario = req.user;
+  if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
   else {
-    usuario = req.user;
-    console.log(usuario);
+
     usuario.email = req.body.email;
     usuario.nombre = req.body.nombre;
     usuario.apellidos = req.body.apellidos;

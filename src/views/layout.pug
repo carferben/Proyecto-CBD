@@ -36,6 +36,9 @@ html
               a.nav-link(href='/usuario/editar') Datos personales
           if isAuthenticated
             li.nav-item
+              a.nav-link(href='/tienda/editar') Mi tienda
+          if isAuthenticated
+            li.nav-item
               a.nav-link(href='/usuario/salir') Salir
 
     block content
