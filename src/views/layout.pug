@@ -2,29 +2,30 @@ doctype html
 html
   include head.pug
 
-  body
-    div.jumbotron.m-0.p-3.text-center
-      h1 Potato Market
-    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
-      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
-        span.navbar-toggler-icon
-      div.collapse.navbar-collapse.justify-content-center(id="collapsibleNavbar")
-        ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='/') Página Principal
-          unless isAuthenticated
+  body.d-flex.flex-column.min-vh-100
+    div.wrapper.flex-grow-1
+      div.jumbotron.m-0.p-3.text-center
+        h1 Potato Market
+      nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
+          span.navbar-toggler-icon
+        div.collapse.navbar-collapse.justify-content-center(id="collapsibleNavbar")
+          ul.navbar-nav
             li.nav-item
-              a.nav-link(href='/usuario/entrar') Iniciar sesión
-          if isAuthenticated
-            li.nav-item
-              a.nav-link(href='/usuario/editar') Datos personales
-          if isAuthenticated
-            li.nav-item
-              a.nav-link(href='/tienda/mostrar') Mi tienda
-          if isAuthenticated
-            li.nav-item
-              a.nav-link(href='/usuario/salir') Salir
+              a.nav-link(href='/') Página Principal
+            unless isAuthenticated
+              li.nav-item
+                a.nav-link(href='/usuario/entrar') Iniciar sesión
+            if isAuthenticated
+              li.nav-item
+                a.nav-link(href='/usuario/editar') Datos personales
+            if isAuthenticated
+              li.nav-item
+                a.nav-link(href='/tienda/mostrar') Mi tienda
+            if isAuthenticated
+              li.nav-item
+                a.nav-link(href='/usuario/salir') Salir
 
-    block content
+      block content
 
     include footer.pug
