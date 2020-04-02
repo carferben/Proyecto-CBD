@@ -1,6 +1,4 @@
 extends ../layout
-block style
-  link(rel='stylesheet' href='/css/form.css')
   
 block content
 
@@ -12,13 +10,15 @@ block content
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend
-              div.input-group-text Usuario: 
-            input#nombre_de_usuario.form-control(type='text' placeholder='paco123' name='nombre_de_usuario' required='true')
+              div.input-group-text
+                i.fa.fa-user-circle.fa-fw
+            input#nombre_de_usuario.form-control(type='text' placeholder='Nombre de usuario' name='nombre_de_usuario' required='true')
 
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend
-              div.input-group-text Contraseña:
+              div.input-group-text
+                i.fa.fa-key.fa-fw
             input#password.form-control(type='password' placeholder='**********' name='password' required='true')
 
         div.text-center.mb-4

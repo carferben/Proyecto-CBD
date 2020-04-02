@@ -1,6 +1,7 @@
 doctype html
 html
   head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     title #{title}
     link(rel='stylesheet' href='/css/bootstrap-grid.min.css')
     link(rel='stylesheet' href='/css/bootstrap-reboot.min.css')
@@ -32,7 +33,11 @@ html
               a.nav-link(href='/usuario/entrar') Iniciar sesión
           if isAuthenticated
             li.nav-item
+              a.nav-link(href='/usuario/editar') Datos personales
+          if isAuthenticated
+            li.nav-item
               a.nav-link(href='/usuario/salir') Salir
+
     block content
     hr
     footer

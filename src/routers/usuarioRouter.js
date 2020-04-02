@@ -40,3 +40,28 @@ module.exports = function(passport) {
 
   return router;
 };
+
+router.get("/editar", (req, res) => {
+  usuario = req.user;
+  if (!usuario) return res.redirect("/");
+  else res.render("usuario/editar", {usuario: usuario});
+});
+
+router.post("/editar", function(req, res) {
+  if (!req.user) return res.redirect("/");
+  else {
+    usuario = req.user;
+    console.log(usuario);
+    usuario.email = req.body.email;
+    usuario.nombre = req.body.nombre;
+    usuario.apellidos = req.body.apellidos;
+    usuario.dni = req.body.dni;
+
+    usuario.save(function(err) {
+      if (err) {
+        console.log("Error al editar la usuario: " + err);
+        throw err;
+      } else return res.redirect("/");
+    });
+  }
+});

@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  div.container.p-0
+    p #{message}
+    div.col-sm-12.col-md-10.col-lg-8.mx-auto
+      form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+        h4.text-center.mb-4 Hola #{usuario.nombre}, estos son tus datos personales.
+
+        div.form-group
+          label(for='nombre_de_usuario') Nombre de usuario
+          input#nombre_de_usuario.form-control(type='text' placeholder='Nombre de usuario' name='nombre_de_usuario' value=usuario.nombre_de_usuario disabled)
+
+        div.form-group
+          label(for='email') Email
+          input#email.form-control(type='email' placeholder='Email' name='email' value=usuario.email required='true')
+
+        div.form-group
+          label(for='nombre') Nombre
+          input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' value=usuario.nombre required='true')
+
+        div.form-group
+          label(for='apellidos') Apellidos
+          input#apellidos.form-control(type='text' placeholder='Apellidos' name='apellidos' value=usuario.apellidos required='true')
+
+        div.form-group
+          label(for='dni') DNI
+          input#dni.form-control(type='text' placeholder='DNI' name='dni' value=usuario.dni required='true')   
+
+        div.text-center
+          button.btn(type='submit') Guardar
