@@ -1,8 +1,6 @@
 doctype html
 html
-  head
-    include head.pug
-    block style
+  include head.pug
 
   body
     div.jumbotron.m-0.p-3.text-center
@@ -22,13 +20,11 @@ html
               a.nav-link(href='/usuario/editar') Datos personales
           if isAuthenticated
             li.nav-item
-              a.nav-link(href='/tienda/editar') Mi tienda
+              a.nav-link(href='/tienda/mostrar') Mi tienda
           if isAuthenticated
             li.nav-item
               a.nav-link(href='/usuario/salir') Salir
 
     block content
-    hr
-    footer
-      - var date = new Date();
-      p Fecha actual: #{date.getDate()}/#{date.getMonth()+1}/#{date.getFullYear()} #{date.getHours()}:#{date.getMinutes()}
+
+    include footer.pug

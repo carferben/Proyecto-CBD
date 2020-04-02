@@ -42,6 +42,20 @@ router.post("/crear", function (req, res) {
   }
 });
 
+router.get("/mostrar", (req, res) => {
+  usuario = req.user;
+  if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
+  else {
+    Tienda.findOne({ usuario: usuario._id }, function (err, tienda) {
+      if (err) {
+        throw err;
+      } else {
+        return res.render("tienda/mostrar", { tienda: tienda });
+      }
+    });
+  }
+});
+
 router.get("/editar", (req, res) => {
   usuario = req.user;
   if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
@@ -77,7 +91,15 @@ router.post("/editar", function (req, res) {
           if (err) {
             console.log("Error al editar la tienda: " + err);
             throw err;
-          } else return res.redirect("/");
+          } else {
+            Tienda.findOne({ usuario: usuario._id }, function (err, tienda) {
+              if (err) {
+                throw err;
+              } else {
+                return res.render("tienda/mostrar", { tienda: tienda });
+              }
+            });
+          } 
         });
       }
     });

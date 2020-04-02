@@ -22,4 +22,10 @@ block content
             p.card-text.m-0 
               small.text-muted Código postal: #{tienda.codigo_postal}
             p.card-text.m-0 
-              small.text-muted Calle: #{tienda.calle} 
+              small.text-muted Calle: #{tienda.calle}
+
+    div.row
+      div.col-md-12.pr-md-5
+        if isAuthenticated && user.id == tienda.usuario
+          div.text-right.mt-3
+            a.btn(href='/tienda/editar' role="button") Editar tienda 

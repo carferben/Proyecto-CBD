@@ -1,9 +1,7 @@
 doctype html
 html
-  head
-    include head.pug
-    block style
-
+  include head.pug
+  
   body
     div.jumbotron.m-0.p-3.text-center
       div.d-flex.flex-row.justify-content-center
@@ -26,7 +24,5 @@ html
                   a.nav-link(href="#") Pantalones
                   a.nav-link(href="#") Zapatos
     block content
-    hr
-    footer
-      - var date = new Date();
-      p Fecha actual: #{date.getDate()}/#{date.getMonth()+1}/#{date.getFullYear()} #{date.getHours()}:#{date.getMinutes()}
+    
+    include footer.pug
