@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  div.container.p-0
+    p #{message}
+    form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+      h4.text-center.mb-4 #{categoria.nombre}
+      div.row
+        input#_id.form-control(type='hidden' name='_id' value=categoria._id)
+
+        div.col-sm-12.col-md-12.col-lg-12.w-100
+          div.form-group
+            label(for='nombre') Nombre
+            input#nombre.form-control(type='text' placeholder='Nombre' value=categoria.nombre name='nombre' required='true')
+
+          div.form-group
+            label(for='tipo') Tipo
+            select#tipo(name='tipo')
+              each variable in ["MUJER", "HOMBRE", "NIÑOS", "OTRO"]
+                option(value=variable, selected=variable == categoria.tipo) #{variable}
+
+          div.text-right
+            button.btn(type='submit') Guardar
