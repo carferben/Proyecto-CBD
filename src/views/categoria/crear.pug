@@ -12,10 +12,11 @@ block content
             input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true')
 
           div.form-group
-            label(for='tipo') Tipo
-            select#tipo(name='tipo')
-              each variable in ["MUJER", "HOMBRE", "NIÑOS", "OTRO"]
-                option(value=variable) #{variable}
+            div
+              label(for='tipo') Tipo
+              select#tipo.form-control(name='tipo')
+                each variable in ["MUJER", "HOMBRE", "NIÑOS", "OTRO"]
+                  option(value=variable) #{variable}
 
           div.text-right
             button.btn(type='submit') Guardar
