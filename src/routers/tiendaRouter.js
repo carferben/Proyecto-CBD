@@ -50,6 +50,8 @@ router.get("/mostrar", (req, res) => {
       if (err) {
         throw err;
       } else {
+        if(!tienda)
+          return res.render("tienda/crear");
         return res.render("tienda/mostrar", { tienda: tienda });
       }
     });
