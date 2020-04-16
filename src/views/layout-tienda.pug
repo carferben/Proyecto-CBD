@@ -41,7 +41,7 @@ html
             div.row.ml-3
               each categoria in categorias_mujer
                 div.col-sm-3
-                  a.nav-link(href='#') #{categoria.nombre}
+                  a.nav-link.a-nav(href='#') #{categoria.nombre}
 
         div#hombre.collapse(data-parent="#accordion")
           if categorias_hombre.length == 0
@@ -51,7 +51,7 @@ html
             div.row.ml-3
               each categoria in categorias_hombre
                 div.col-sm-3
-                  a.nav-link(href='#') #{categoria.nombre}
+                  a.nav-link.a-nav(href='#') #{categoria.nombre}
 
         div#niynos.collapse(data-parent="#accordion")
           if categorias_niños.length == 0
@@ -61,7 +61,7 @@ html
             div.row.ml-3
               each categoria in categorias_niños
                 div.col-sm-3
-                  a.nav-link(href='#') #{categoria.nombre}
+                  a.nav-link.a-nav(href='#') #{categoria.nombre}
         
         div#otros.collapse(data-parent="#accordion")
           if categorias_otro.length == 0
@@ -71,7 +71,7 @@ html
             div.row.ml-3
               each categoria in categorias_otro
                 div.col-sm-3
-                  a.nav-link(href='#') #{categoria.nombre}
+                  a.nav-link.a-nav(href='#') #{categoria.nombre}
 
         hr       
 
