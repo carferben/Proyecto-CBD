@@ -2,13 +2,42 @@ var express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Tienda = require("../models/tienda");
+const Categoria = require("../models/categoria");
 
 router.get("/mostrar/:id", (req, res) => {
   Tienda.findById(req.params.id, function (err, tienda) {
     if (err) {
       throw err;
     } else {
-      return res.render("tienda/mostrar", { tienda: tienda });
+      if(!tienda) {
+        return res.render("tienda/crear");
+      } else {
+        Categoria.find({tienda: tienda.id, tipo:'MUJER'}, (err, categoria_mujer) => {
+          if (err) {
+            throw err;
+          } else {
+            Categoria.find({tienda: tienda.id, tipo:'HOMBRE'}, (err, categoria_hombre) => {
+              if (err) {
+                throw err;
+              } else {
+                Categoria.find({tienda: tienda.id, tipo:'NIÑOS'}, (err, categoria_niños) => {
+                  if (err) {
+                    throw err;
+                  } else {
+                    Categoria.find({tienda: tienda.id, tipo:'OTRO'}, (err, categoria_otro) => {
+                      if (err) {
+                        throw err;
+                      } else {
+                        return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_niños:categoria_niños, categorias_otro:categoria_otro});
+                      }
+                    });
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
     }
   });
 });
@@ -50,9 +79,35 @@ router.get("/mostrar", (req, res) => {
       if (err) {
         throw err;
       } else {
-        if(!tienda)
+        if(!tienda) {
           return res.render("tienda/crear");
-        return res.render("tienda/mostrar", { tienda: tienda });
+        } else {
+          Categoria.find({tienda: tienda.id, tipo:'MUJER'}, (err, categoria_mujer) => {
+            if (err) {
+              throw err;
+            } else {
+              Categoria.find({tienda: tienda.id, tipo:'HOMBRE'}, (err, categoria_hombre) => {
+                if (err) {
+                  throw err;
+                } else {
+                  Categoria.find({tienda: tienda.id, tipo:'NIÑOS'}, (err, categoria_niños) => {
+                    if (err) {
+                      throw err;
+                    } else {
+                      Categoria.find({tienda: tienda.id, tipo:'OTRO'}, (err, categoria_otro) => {
+                        if (err) {
+                          throw err;
+                        } else {
+                          return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_niños:categoria_niños, categorias_otro:categoria_otro});
+                        }
+                      });
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
       }
     });
   }

@@ -10,99 +10,70 @@ html
             i.fas.fa-shopping-bag 
           h1 #{tienda.nombre}
 
-      nav.navbar.navbar-expand-sm.bg-dark.mb-3
+      nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
         button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar-collapse")
           span.navbar-toggler-icon
 
         div.collapse.navbar-collapse.justify-content-center(id="navbar-collapse")
           ul.navbar-nav
-            li.dropdown
-              a.dropdown-toggle.nav-link(data-toggle='dropdown') Niños
-              ul.dropdown-menu.multi-column.columns-3
-                div.row
-                  div.col-sm-4
-                    ul.dropdown-menu.multi-column-dropdown
-                      li
-                        a.nav-link(href='#') Bodies
-                      li
-                        a.nav-link(href='#') Camisetas
-                      li
-                        a.nav-link(href='#') Vestidos
-                      li.divider
-                      li
-                        a.nav-link(href='#') Camisas
-                      li.divider
-                      li
-                        a.nav-link(href='#') Pantalones
-                  div.col-sm-4
-                    ul.multi-column-dropdown
-                      li
-                        a.nav-link(href='#') Faldas
-                      li
-                        a.nav-link(href='#') Complementos
-                      li
-                        a.nav-link(href='#') Pijamas
-                      li.divider
-                      li
-                        a.nav-link(href='#') Zapatos
-                      li.divider
-                      li
-                        a.nav-link(href='#') Calcetines
-                  div.col-sm-4
-                    ul.multi-column-dropdown
-                      li
-                        a.nav-link(href='#') Ropa de interior
-                      li
-                        a.nav-link(href='#') Bañadores
-                      li
-                        a.nav-link(href='#') Disfraces
-
-            li.dropdown
-              a.dropdown-toggle.nav-link(data-toggle='dropdown') Otros
-              ul.dropdown-menu.pl-5
-                li
-                  a.nav-link(href='#') Plantas
-                li
-                  a.nav-link(href='#') Decoración
-                li
-                  a.nav-link(href='#') Ropa de cama
-                li.divider
-
-            li.nav-item
-              a.nav-link(href='/') Página principal
 
             li.nav-item
               a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#mujer" aria-expanded="false") Mujer
 
             li.nav-item
               a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#hombre" aria-expanded="false") Hombre
+            
+            li.nav-item
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#niynos" aria-expanded="false") Niños
+
+            li.nav-item
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#otros" aria-expanded="false") Otros
+            
+            li.nav-item
+              a.nav-link(href='/') Página principal
 
       div#accordion.container-fluid
         div#mujer.collapse(data-parent="#accordion")
-          div.row
-            div.col-sm-6
-              a.nav-link(href='#') Vaqueros
-              a.nav-link(href='#') Camisas
-              a.nav-link(href='#') Chandal
-              a.nav-link(href='#') Camisetas
-              a.nav-link(href='#') Zapatos
-            div.col-sm-6
-              a.nav-link(href='#') Complementos
-              a.nav-link(href='#') Trajes
-              a.nav-link(href='#') Bañadores
+          if categorias_mujer.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+              i.fa.fa-female
+          else
+            div.row.ml-3
+              each categoria in categorias_mujer
+                div.col-sm-3
+                  a.nav-link(href='#') #{categoria.nombre}
 
         div#hombre.collapse(data-parent="#accordion")
-          div.row
-            div.col-sm-6
-              a.nav-link(href='#') Vaqueros
-              a.nav-link(href='#') Camisas
-              a.nav-link(href='#') Chandal
-              a.nav-link(href='#') Camisetas
-              a.nav-link(href='#') Zapatos
-            div.col-sm-6
-              a.nav-link(href='#') Complementos
-              a.nav-link(href='#') Trajes
-              a.nav-link(href='#') Bañadores
+          if categorias_hombre.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+                i.fa.fa-user-tie
+          else
+            div.row.ml-3
+              each categoria in categorias_hombre
+                div.col-sm-3
+                  a.nav-link(href='#') #{categoria.nombre}
+
+        div#niynos.collapse(data-parent="#accordion")
+          if categorias_niños.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+                i.fa.fa-child
+          else
+            div.row.ml-3
+              each categoria in categorias_niños
+                div.col-sm-3
+                  a.nav-link(href='#') #{categoria.nombre}
+        
+        div#otros.collapse(data-parent="#accordion")
+          if categorias_otro.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+                i.fa.fa-home
+          else
+            div.row.ml-3
+              each categoria in categorias_otro
+                div.col-sm-3
+                  a.nav-link(href='#') #{categoria.nombre}
+
+        hr       
 
       block content
 
