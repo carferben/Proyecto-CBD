@@ -8,7 +8,7 @@ router.get("/mostrar/:id", (req, res) => {
     if (err) {
       throw err;
     } else {
-      return res.render('tienda/mostrar', { tienda: tienda });
+      return res.render("tienda/mostrar", { tienda: tienda });
     }
   });
 });
@@ -50,6 +50,8 @@ router.get("/mostrar", (req, res) => {
       if (err) {
         throw err;
       } else {
+        if(!tienda)
+          return res.render("tienda/crear");
         return res.render("tienda/mostrar", { tienda: tienda });
       }
     });
@@ -78,7 +80,6 @@ router.post("/editar", function (req, res) {
       if (err) {
         throw err;
       } else {
-
         tienda.nombre = req.body.nombre;
         tienda.descripcion = req.body.descripcion;
         tienda.email = req.body.email;
@@ -92,14 +93,8 @@ router.post("/editar", function (req, res) {
             console.log("Error al editar la tienda: " + err);
             throw err;
           } else {
-            Tienda.findOne({ usuario: usuario._id }, function (err, tienda) {
-              if (err) {
-                throw err;
-              } else {
-                return res.render("tienda/mostrar", { tienda: tienda });
-              }
-            });
-          } 
+            return res.render("tienda/mostrar", { tienda: tienda });
+          }
         });
       }
     });
