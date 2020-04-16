@@ -1,7 +1,7 @@
 doctype html
 html
   include head.pug
-  
+
   body.d-flex.flex-column.min-vh-100
     div.wrapper.flex-grow-1
       div.jumbotron.m-0.p-3.text-center
@@ -16,66 +16,8 @@ html
 
         div.collapse.navbar-collapse.justify-content-center(id="navbar-collapse")
           ul.navbar-nav
-
             li.dropdown
-              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Mujer
-              ul.dropdown-menu.multi-column.columns-2
-                div.row
-                  div.col-sm-6
-                    ul.multi-column-dropdown
-                      li
-                        a.nav-link(href='#') Vaqueros
-                      li
-                        a.nav-link(href='#') Camisas
-                      li
-                        a.nav-link(href='#') Chandal
-                      li.divider
-                      li
-                        a.nav-link(href='#') Camisetas
-                      li.divider
-                      li
-                        a.nav-link(href='#') Zapatos
-                  div.col-sm-6
-                    ul.multi-column-dropdown
-                      li
-                        a.nav-link(href='#') Complementos
-                      li
-                        a.nav-link(href='#') Trajes
-                      li
-                        a.nav-link(href='#') Bañadores
-                      li.divider
-
-            li.dropdown
-              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Hombre
-              ul.dropdown-menu.dropdown-menu.multi-column.columns-2
-                div.row
-                  div.col-sm-6
-                    ul.multi-column-dropdown
-                      li
-                        a.nav-link(href='#') Vaqueros
-                      li
-                        a.nav-link(href='#') Camisas
-                      li
-                        a.nav-link(href='#') Chandal
-                      li.divider
-                      li
-                        a.nav-link(href='#') Camisetas
-                      li.divider
-                      li
-                        a.nav-link(href='#') Zapatos
-                  div.col-sm-6
-                    ul.multi-column-dropdown
-                      li
-                        a.nav-link(href='#') Complementos
-                      li
-                        a.nav-link(href='#') Trajes
-                      li
-                        a.nav-link(href='#') Bañadores
-                      li.divider
-
-
-            li.dropdown
-              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Niños
+              a.dropdown-toggle.nav-link(data-toggle='dropdown') Niños
               ul.dropdown-menu.multi-column.columns-3
                 div.row
                   div.col-sm-4
@@ -116,7 +58,7 @@ html
                         a.nav-link(href='#') Disfraces
 
             li.dropdown
-              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Otros
+              a.dropdown-toggle.nav-link(data-toggle='dropdown') Otros
               ul.dropdown-menu.pl-5
                 li
                   a.nav-link(href='#') Plantas
@@ -129,7 +71,39 @@ html
             li.nav-item
               a.nav-link(href='/') Página principal
 
+            li.nav-item
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#mujer" aria-expanded="false") Mujer
+
+            li.nav-item
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#hombre" aria-expanded="false") Hombre
+
+      div#accordion.container-fluid
+        div#mujer.collapse(data-parent="#accordion")
+          div.row
+            div.col-sm-6
+              a.nav-link(href='#') Vaqueros
+              a.nav-link(href='#') Camisas
+              a.nav-link(href='#') Chandal
+              a.nav-link(href='#') Camisetas
+              a.nav-link(href='#') Zapatos
+            div.col-sm-6
+              a.nav-link(href='#') Complementos
+              a.nav-link(href='#') Trajes
+              a.nav-link(href='#') Bañadores
+
+        div#hombre.collapse(data-parent="#accordion")
+          div.row
+            div.col-sm-6
+              a.nav-link(href='#') Vaqueros
+              a.nav-link(href='#') Camisas
+              a.nav-link(href='#') Chandal
+              a.nav-link(href='#') Camisetas
+              a.nav-link(href='#') Zapatos
+            div.col-sm-6
+              a.nav-link(href='#') Complementos
+              a.nav-link(href='#') Trajes
+              a.nav-link(href='#') Bañadores
 
       block content
-    
+
     include footer.pug
