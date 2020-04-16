@@ -9,21 +9,127 @@ html
           h1.mr-2
             i.fas.fa-shopping-bag 
           h1 #{tienda.nombre}
-      nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
-        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
+
+      nav.navbar.navbar-expand-sm.bg-dark.mb-3
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar-collapse")
           span.navbar-toggler-icon
-        div.collapse.navbar-collapse.justify-content-center(id="collapsibleNavbar")
+
+        div.collapse.navbar-collapse.justify-content-center(id="navbar-collapse")
           ul.navbar-nav
+
+            li.dropdown
+              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Mujer
+              ul.dropdown-menu.multi-column.columns-2
+                div.row
+                  div.col-sm-6
+                    ul.multi-column-dropdown
+                      li
+                        a.nav-link(href='#') Vaqueros
+                      li
+                        a.nav-link(href='#') Camisas
+                      li
+                        a.nav-link(href='#') Chandal
+                      li.divider
+                      li
+                        a.nav-link(href='#') Camisetas
+                      li.divider
+                      li
+                        a.nav-link(href='#') Zapatos
+                  div.col-sm-6
+                    ul.multi-column-dropdown
+                      li
+                        a.nav-link(href='#') Complementos
+                      li
+                        a.nav-link(href='#') Trajes
+                      li
+                        a.nav-link(href='#') Bañadores
+                      li.divider
+
+            li.dropdown
+              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Hombre
+              ul.dropdown-menu.dropdown-menu.multi-column.columns-2
+                div.row
+                  div.col-sm-6
+                    ul.multi-column-dropdown
+                      li
+                        a.nav-link(href='#') Vaqueros
+                      li
+                        a.nav-link(href='#') Camisas
+                      li
+                        a.nav-link(href='#') Chandal
+                      li.divider
+                      li
+                        a.nav-link(href='#') Camisetas
+                      li.divider
+                      li
+                        a.nav-link(href='#') Zapatos
+                  div.col-sm-6
+                    ul.multi-column-dropdown
+                      li
+                        a.nav-link(href='#') Complementos
+                      li
+                        a.nav-link(href='#') Trajes
+                      li
+                        a.nav-link(href='#') Bañadores
+                      li.divider
+
+
+            li.dropdown
+              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Niños
+              ul.dropdown-menu.multi-column.columns-3
+                div.row
+                  div.col-sm-4
+                    ul.dropdown-menu.multi-column-dropdown
+                      li
+                        a.nav-link(href='#') Bodies
+                      li
+                        a.nav-link(href='#') Camisetas
+                      li
+                        a.nav-link(href='#') Vestidos
+                      li.divider
+                      li
+                        a.nav-link(href='#') Camisas
+                      li.divider
+                      li
+                        a.nav-link(href='#') Pantalones
+                  div.col-sm-4
+                    ul.multi-column-dropdown
+                      li
+                        a.nav-link(href='#') Faldas
+                      li
+                        a.nav-link(href='#') Complementos
+                      li
+                        a.nav-link(href='#') Pijamas
+                      li.divider
+                      li
+                        a.nav-link(href='#') Zapatos
+                      li.divider
+                      li
+                        a.nav-link(href='#') Calcetines
+                  div.col-sm-4
+                    ul.multi-column-dropdown
+                      li
+                        a.nav-link(href='#') Ropa de interior
+                      li
+                        a.nav-link(href='#') Bañadores
+                      li
+                        a.nav-link(href='#') Disfraces
+
+            li.dropdown
+              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown') Otros
+              ul.dropdown-menu.pl-5
+                li
+                  a.nav-link(href='#') Plantas
+                li
+                  a.nav-link(href='#') Decoración
+                li
+                  a.nav-link(href='#') Ropa de cama
+                li.divider
+
             li.nav-item
-              a.nav-link(href='/') Página Principal
-            li.nav-item
-              a.nav-link(href='/article/list') Lista de artículos
-                ul.navbar-nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-                  li.nav-item
-                    a.nav-link(href="#") Camisetas
-                    a.nav-link(href="#") Vestidos
-                    a.nav-link(href="#") Pantalones
-                    a.nav-link(href="#") Zapatos
+              a.nav-link(href='/') Página principal
+
+
       block content
     
     include footer.pug
