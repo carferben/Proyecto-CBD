@@ -27,15 +27,10 @@ module.exports = function (passport) {
         newUser.save(function (err) {
           if (err) {
             var errorMessage = err.errmsg;
-            if (errorMessage.includes("nombre_de_usuario"))
-              errorMessage = "user_exists";
-            if (errorMessage.includes("email"))
-              errorMessage = "email_exists";
-            return done(
-              null,
-              false,
-              req.flash("message", errorMessage)
-            );
+            var res;
+            if (errorMessage.includes("nombre_de_usuario")) res = "user_exists";
+            if (errorMessage.includes("email")) res = "email_exists";
+            return done(null, false, req.flash("message", res));
           }
           console.log("Registro de usuario exitoso");
           return done(null, newUser);
