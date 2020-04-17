@@ -1,0 +1,13 @@
+extends ../layout-tienda
+
+block content
+  div.container.p-0
+    h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo})
+
+    div.row
+      div.col-md-12.pr-md-5
+        if isAuthenticated && user.id == tienda.usuario
+          div.text-right.mt-3
+            a.btn.mr-3(href='/categoria/editar/' + categoria.id role="button") Editar categoría
+            a.btn.mr-3(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría  
+          
