@@ -1,0 +1,21 @@
+extends ../layout-tienda
+
+block content
+  div.container.p-0
+    p #{message}
+    form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+      div.row
+
+        div.col-sm-12.col-md-12.col-lg-12.w-100
+          h4.text-center.mb-4 Crear nueva subcategoría
+          div.form-group
+            label(for='nombre') Nombre
+            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true')
+
+          div.form-group
+            div
+              label(for='descripcion') Descripción
+              input#descripcion.form-control(type='text' placeholder='descripcion' name='descripcion' required='true')
+
+          div.text-right
+            button.btn(type='submit') Guardar
