@@ -24,7 +24,7 @@ router.get("/mostrar/:id", (req, res) => {
                 if (err) {
                   throw err;
                 } else {
-                  Articulo.find({categoria: cat}, (err, articulos) => {
+                  Articulo.find({categoria: categoria}, (err, articulos) => {
                     if (err) {
                       throw err;
                     } else {

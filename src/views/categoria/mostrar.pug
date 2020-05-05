@@ -25,13 +25,14 @@ block content
       div.col-md-9
         div.row
           div.col-md-4
-            input.form-control.mt-3(type='text' placeholder='Buscador' aria-label='Search')
+            input.form-control.mt-2(type='text' placeholder='Buscador' aria-label='Search')
 
           div.col-md-8
             if isAuthenticated && user.id == tienda.usuario
-              div.text-right.mt-3
-                a.btn.mr-3(href='/categoria/editar/' + categoria.id role="button") Editar categoría #{categoria.nombre}
-                a.btn.mr-3(href='#' + categoria.id role="button") Editar subcategoría XXXX
+              div.text-right
+                a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                a.btn.mr-3.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría #{categoria.nombre}
+                a.btn.mr-3.mt-2(href='#' + categoria.id role="button") Editar subcategoría XXXX
       
 
         div.card-deck.mt-3
@@ -43,7 +44,9 @@ block content
                   h3.card-title.text-center #{articulo.nombre}
                 div.card-footer
                   p.card-text.m-0 
-                    small.text-muted #{articulo.precio} €
+                    small.text-muted Precio: #{articulo.precio} €
+                  p.card-text.m-0
+                    small.text-muted Tallas disponibles: #{articulo.tallas}
                 
     
           
