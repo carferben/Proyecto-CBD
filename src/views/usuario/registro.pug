@@ -1,12 +1,18 @@
 extends ../layout
 
+block scripts
+  script(src="/js/validators/register.js")
+
 
 block content
   div.container.p-0
-    p #{message}
     div.col-sm-12.col-md-10.col-lg-8.mx-auto
-      form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+      form#myForm.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post" onsubmit="return validateForm()")
         h4.text-center.mb-4 Registro como dueño de una tienda
+        - if (message == "user_exists") message = "El usuario ya existe"
+        - if (message == "email_exists") message = "El email ya existe"
+        if (message != "")
+          p.alert.alert-danger #{message}
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend
@@ -42,6 +48,7 @@ block content
                 i.fas.fa-user-alt.fa-fw
             input#apellidos.form-control(type='text' placeholder='Apellidos' name='apellidos' required='true')
 
+        span#dni_error.text-danger
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend
