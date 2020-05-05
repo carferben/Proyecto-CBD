@@ -1,7 +1,7 @@
 doctype html
 html
   include head.pug
-  
+
   body.d-flex.flex-column.min-vh-100
     div.wrapper.flex-grow-1
       div.jumbotron.m-0.p-3.text-center
@@ -9,21 +9,76 @@ html
           h1.mr-2
             i.fas.fa-shopping-bag 
           h1 #{tienda.nombre}
+
       nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
-        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar-collapse")
           span.navbar-toggler-icon
-        div.collapse.navbar-collapse.justify-content-center(id="collapsibleNavbar")
+
+        div.collapse.navbar-collapse.justify-content-center(id="navbar-collapse")
           ul.navbar-nav
+
             li.nav-item
-              a.nav-link(href='/') Página Principal
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#mujer" aria-expanded="false") Mujer
+
             li.nav-item
-              a.nav-link(href='/article/list') Lista de artículos
-                ul.navbar-nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-                  li.nav-item
-                    a.nav-link(href="#") Camisetas
-                    a.nav-link(href="#") Vestidos
-                    a.nav-link(href="#") Pantalones
-                    a.nav-link(href="#") Zapatos
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#hombre" aria-expanded="false") Hombre
+            
+            li.nav-item
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#niynos" aria-expanded="false") Niños
+
+            li.nav-item
+              a.nav-link(style="cursor: pointer;" data-toggle="collapse" data-target="#otros" aria-expanded="false") Otros
+            
+            li.nav-item
+              a.nav-link(href='/') Página principal
+            
+            if isAuthenticated
+              li.nav-item
+                a.nav-link(href='/usuario/salir') Salir
+
+      div#accordion.container-fluid
+        div#mujer.collapse(data-parent="#accordion")
+          if categorias_mujer.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+              i.fa.fa-female
+          else
+            div.row.ml-3
+              each categoria in categorias_mujer
+                div.col-sm-3
+                  a.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+
+        div#hombre.collapse(data-parent="#accordion")
+          if categorias_hombre.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+                i.fa.fa-user-tie
+          else
+            div.row.ml-3
+              each categoria in categorias_hombre
+                div.col-sm-3
+                  a.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+
+        div#niynos.collapse(data-parent="#accordion")
+          if categorias_niños.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+                i.fa.fa-child
+          else
+            div.row.ml-3
+              each categoria in categorias_niños
+                div.col-sm-3
+                  a.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+        
+        div#otros.collapse(data-parent="#accordion")
+          if categorias_otro.length == 0
+            h5.text-center Lo siento, no hay artículos relacionados en esta sección 
+                i.fa.fa-home
+          else
+            div.row.ml-3
+              each categoria in categorias_otro
+                div.col-sm-3
+                  a.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+
+        hr       
+
       block content
-    
+
     include footer.pug

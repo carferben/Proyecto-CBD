@@ -4,6 +4,46 @@ const mongoose = require("mongoose");
 const Categoria = require("../models/categoria");
 const Tienda = require("../models/tienda");
 
+router.get("/mostrar/:id", (req, res) => {
+  Categoria.findById(req.params.id, function (err, categoria) {
+    if (err) {
+      throw err;
+    } else {
+      Tienda.findById(categoria.tienda, function (err, tienda) {
+        if (err) {
+          throw err;
+        } else {
+          Categoria.find({tienda: tienda.id, tipo:'MUJER'}, (err, categoria_mujer) => {
+            if (err) {
+              throw err;
+            } else {
+              Categoria.find({tienda: tienda.id, tipo:'HOMBRE'}, (err, categoria_hombre) => {
+                if (err) {
+                  throw err;
+                } else {
+                  Categoria.find({tienda: tienda.id, tipo:'NIÑOS'}, (err, categoria_niños) => {
+                    if (err) {
+                      throw err;
+                    } else {
+                      Categoria.find({tienda: tienda.id, tipo:'OTRO'}, (err, categoria_otro) => {
+                        if (err) {
+                          throw err;
+                        } else {
+                          return res.render("categoria/mostrar", { categoria: categoria, tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_niños:categoria_niños, categorias_otro:categoria_otro});
+                        }
+                      });
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+});
+
 router.get("/crear", (req, res) => {
   if (!req.user || req.user.rol != "TIENDA") return res.redirect("/");
   else res.render("categoria/crear");

@@ -1,4 +1,4 @@
-extends ../layout
+extends ../layout-tienda
 
 block content
   div.container.p-0
@@ -7,17 +7,15 @@ block content
       div.row
 
         div.col-sm-12.col-md-12.col-lg-12.w-100
-          h4.text-center.mb-4 Crear nueva categoría
+          h4.text-center.mb-4 Crear nueva subcategoría
           div.form-group
             label(for='nombre') Nombre
             input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true')
 
           div.form-group
             div
-              label(for='tipo') Tipo
-              select#tipo.form-control(name='tipo')
-                each variable in ["MUJER", "HOMBRE", "NIÑOS", "OTRO"]
-                  option(value=variable) #{variable}
+              label(for='descripcion') Descripción
+              input#descripcion.form-control(type='text' placeholder='descripcion' name='descripcion' required='true')
 
           div.text-right
             button.btn(type='submit') Guardar
