@@ -1,18 +1,49 @@
 extends ../layout-tienda
 
 block content
-  div.container.p-0
+  div.mr-5.ml-5
     h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo})
 
     div.row
-      div.col-md-12.pr-md-5
-        if isAuthenticated && user.id == tienda.usuario
-          div.text-right.mt-3
-            a.btn.mr-3(href='/categoria/editar/' + categoria.id role="button") Editar categoría
-            a.btn.mr-3(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría
+      div.col-md-3
+        nav.navbar.navbar-expand-sm(style='padding: initial;')
+          button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navSub")
+            h6 Ver subcategorías disponibles 
+              i.fa.fa-arrow-down.fa-fw
+
+          div.collapse.navbar-collapse(id="navSub")
+            div.col-md-12
+              h5.text-center Subcategorías de #{categoria.nombre}
+              hr
+              each subcategoria in subcategorias
+                h6 #{subcategoria.nombre}
+                  a.mr-3.mt-2(href='/subcategoria/editar/' + subcategoria.id role="button") Editar
+              if isAuthenticated && user.id == tienda.usuario
+                div.text-center
+                  a.btn.mr-3.mt-2(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría
+      
+      div.col-md-9
+        div.row
+          div.col-md-4
+            input.form-control.mt-3(type='text' placeholder='Buscador' aria-label='Search')
+
+          div.col-md-8
+            if isAuthenticated && user.id == tienda.usuario
+              div.text-right.mt-3
+                a.btn.mr-3(href='/categoria/editar/' + categoria.id role="button") Editar categoría #{categoria.nombre}
+                a.btn.mr-3(href='#' + categoria.id role="button") Editar subcategoría XXXX
+      
+
+        div.card-deck.mt-3
+          each articulo in articulos
+            div.col-md-12.col-lg-3.d-flex.align-items-stretch.pb-3
+              div.card.w-100
+                img.card-img-top(src=articulo.imagen)
+                div.card-body
+                  h3.card-title.text-center #{articulo.nombre}
+                div.card-footer
+                  p.card-text.m-0 
+                    small.text-muted #{articulo.precio} €
+                
     
-    div.row.ml-3.text-justify-center.pt-3
-      each subcategoria in subcategorias
-        div.col-sm-3
-          h6 #{subcategoria.nombre}
           

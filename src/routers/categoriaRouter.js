@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Categoria = require("../models/categoria");
 const Tienda = require("../models/tienda");
 const Subcategoria = require("../models/subcategoria");
+const Articulo = require("../models/articulo");
 
 
 router.get("/mostrar/:id", (req, res) => {
@@ -23,15 +24,21 @@ router.get("/mostrar/:id", (req, res) => {
                 if (err) {
                   throw err;
                 } else {
-                  var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
-                  var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
-                  var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
-                  var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
-                  return res.render("categoria/mostrar", { subcategorias:subcategoria, categoria: categoria, tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
+                  Articulo.find({categoria: cat}, (err, articulos) => {
+                    if (err) {
+                      throw err;
+                    } else {
+                      var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
+                      var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
+                      var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
+                      var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
+                      return res.render("categoria/mostrar", { articulos:articulos, subcategorias:subcategoria, categoria: categoria, tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
+                    }
+                  });
                 }
               });
             }
-          })
+          });
         }
       });
     }
