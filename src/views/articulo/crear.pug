@@ -1,0 +1,46 @@
+extends ../layout-tienda
+
+block content
+  div.container.p-0
+    p #{message}
+    form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post" action="/articulo/crear")
+      div.row
+        div.col-sm-12.col-md-12.col-lg-12.w-100
+          h4.text-center.mb-4 Crear nueva artículo
+          div.form-group
+            label(for='nombre') Nombre
+            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true')
+
+          div.form-group
+            label(for='descripcion') Descripción
+            textarea#descripcion.form-control(rows="4" placeholder='Descripción' name='descripcion' required='true')
+
+          div.form-group
+            label(for='imagen') Material
+            input#imagen.form-control(type='url' placeholder='https://images.pexels.com/photos/167706/pexels-photo-167706.jpeg' name='imagen')
+
+          div.form-group
+            label(for='precio') Precio
+            input#precio.form-control(type='number' placeholder='19,99' name='precio' required='true' min="0" value="0" step="any")
+
+          div.form-group
+            label(for='lugar_de_fabricacion') Lugar de fabricación
+            input#lugar_de_fabricacion.form-control(type='text' placeholder='España' name='lugar_de_fabricacion')
+
+          div.form-group
+            label(for='material') Material
+            input#material.form-control(type='text' placeholder='Material' name='material')
+
+          div.form-group
+            label(for='tallas') Tallas
+            input#tallas.form-control(type='text' placeholder='XS, S, L' name='tallas')
+
+          div.form-group
+            div
+              label(for='subcategoria') Subcategoria
+              select#subcategoria.form-control(name='subcategoria')
+                each subcategoria in subcategorias
+                  option(value=subcategoria) #{subcategoria.nombre}
+
+          div.text-right
+            button.btn(type='submit') Guardar

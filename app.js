@@ -6,6 +6,7 @@ var usuarioRouter = require("./src/routers/usuarioRouter")(passport);
 var tiendaRouter = require("./src/routers/tiendaRouter");
 var categoriaRouter = require("./src/routers/categoriaRouter");
 var subcategoriaRouter = require("./src/routers/subcategoriaRouter");
+var articuloRouter = require("./src/routers/articuloRouter");
 var bodyParser = require("body-parser");
 var session = require("express-session");
 var flash = require("connect-flash");
@@ -65,6 +66,7 @@ app.use("/usuario", usuarioRouter);
 app.use("/tienda", tiendaRouter);
 app.use("/categoria", categoriaRouter);
 app.use("/subcategoria", subcategoriaRouter);
+app.use("/articulo", articuloRouter);
 
 // Iniciamos el servidor
 const port = 3000;
