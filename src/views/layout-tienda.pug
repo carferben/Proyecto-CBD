@@ -58,12 +58,12 @@ html
                   a.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
 
         div#niynos.collapse(data-parent="#accordion")
-          if categorias_niños.length == 0
+          if categorias_ninos.length == 0
             h5.text-center Lo siento, no hay artículos relacionados en esta sección 
                 i.fa.fa-child
           else
             div.row.ml-3
-              each categoria in categorias_niños
+              each categoria in categorias_ninos
                 div.col-sm-3
                   a.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
         

@@ -3,6 +3,8 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const Categoria = require("../models/categoria");
 const Tienda = require("../models/tienda");
+const Subcategoria = require("../models/subcategoria");
+
 
 router.get("/mostrar/:id", (req, res) => {
   Categoria.findById(req.params.id, function (err, categoria) {
@@ -13,31 +15,23 @@ router.get("/mostrar/:id", (req, res) => {
         if (err) {
           throw err;
         } else {
-          Categoria.find({tienda: tienda.id, tipo:'MUJER'}, (err, categoria_mujer) => {
+          Categoria.find({tienda: tienda.id}, (err, categorias) => {
             if (err) {
               throw err;
             } else {
-              Categoria.find({tienda: tienda.id, tipo:'HOMBRE'}, (err, categoria_hombre) => {
+              Subcategoria.find({categoria:categoria._id }, (err, subcategoria) => {
                 if (err) {
                   throw err;
                 } else {
-                  Categoria.find({tienda: tienda.id, tipo:'NIÑOS'}, (err, categoria_niños) => {
-                    if (err) {
-                      throw err;
-                    } else {
-                      Categoria.find({tienda: tienda.id, tipo:'OTRO'}, (err, categoria_otro) => {
-                        if (err) {
-                          throw err;
-                        } else {
-                          return res.render("categoria/mostrar", { categoria: categoria, tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_niños:categoria_niños, categorias_otro:categoria_otro});
-                        }
-                      });
-                    }
-                  });
+                  var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
+                  var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
+                  var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
+                  var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
+                  return res.render("categoria/mostrar", { subcategorias:subcategoria, categoria: categoria, tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
                 }
               });
             }
-          });
+          })
         }
       });
     }

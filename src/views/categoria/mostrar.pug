@@ -9,5 +9,10 @@ block content
         if isAuthenticated && user.id == tienda.usuario
           div.text-right.mt-3
             a.btn.mr-3(href='/categoria/editar/' + categoria.id role="button") Editar categoría
-            a.btn.mr-3(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría  
+            a.btn.mr-3(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría
+    
+    div.row.ml-3.text-justify-center.pt-3
+      each subcategoria in subcategorias
+        div.col-sm-3
+          h6 #{subcategoria.nombre}
           

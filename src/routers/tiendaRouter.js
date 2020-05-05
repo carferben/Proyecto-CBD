@@ -12,34 +12,20 @@ router.get("/mostrar/:id", (req, res) => {
       if(!tienda) {
         return res.render("tienda/crear");
       } else {
-        Categoria.find({tienda: tienda.id, tipo:'MUJER'}, (err, categoria_mujer) => {
+        Categoria.find({tienda: tienda.id}, (err, categorias) => {
           if (err) {
             throw err;
           } else {
-            Categoria.find({tienda: tienda.id, tipo:'HOMBRE'}, (err, categoria_hombre) => {
-              if (err) {
-                throw err;
-              } else {
-                Categoria.find({tienda: tienda.id, tipo:'NIÑOS'}, (err, categoria_niños) => {
-                  if (err) {
-                    throw err;
-                  } else {
-                    Categoria.find({tienda: tienda.id, tipo:'OTRO'}, (err, categoria_otro) => {
-                      if (err) {
-                        throw err;
-                      } else {
-                        return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_niños:categoria_niños, categorias_otro:categoria_otro});
-                      }
-                    });
-                  }
-                });
-              }
-            });
+            var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
+            var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
+            var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
+            var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
+            return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
           }
         });
       }
     }
-  });
+  })
 });
 
 router.get("/crear", (req, res) => {
@@ -82,29 +68,15 @@ router.get("/mostrar", (req, res) => {
         if(!tienda) {
           return res.render("tienda/crear");
         } else {
-          Categoria.find({tienda: tienda.id, tipo:'MUJER'}, (err, categoria_mujer) => {
+          Categoria.find({tienda: tienda.id}, (err, categorias) => {
             if (err) {
               throw err;
             } else {
-              Categoria.find({tienda: tienda.id, tipo:'HOMBRE'}, (err, categoria_hombre) => {
-                if (err) {
-                  throw err;
-                } else {
-                  Categoria.find({tienda: tienda.id, tipo:'NIÑOS'}, (err, categoria_niños) => {
-                    if (err) {
-                      throw err;
-                    } else {
-                      Categoria.find({tienda: tienda.id, tipo:'OTRO'}, (err, categoria_otro) => {
-                        if (err) {
-                          throw err;
-                        } else {
-                          return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_niños:categoria_niños, categorias_otro:categoria_otro});
-                        }
-                      });
-                    }
-                  });
-                }
-              });
+              var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
+              var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
+              var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
+              var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
+              return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
             }
           });
         }
@@ -112,6 +84,7 @@ router.get("/mostrar", (req, res) => {
     });
   }
 });
+
 
 router.get("/editar", (req, res) => {
   usuario = req.user;
