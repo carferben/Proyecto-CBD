@@ -71,4 +71,28 @@ block content
                     p.card-text.m-0
                       small.text-muted Tallas disponibles: #{articulo.tallas}
 
+    nav(aria-label='Navegación')
+      if totalItems > 0
+        ul.pagination.justify-content-center
+          - var currentPage = parseInt(page)
+          - var previousPage = currentPage - 1
+          - var nextPage = currentPage + 1
+          - var isLastPage = nextPage * 8 >= totalItems
+          unless isLastPage && currentPage == 0
+            if previousPage >= 0
+              li.page-item
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + previousPage aria-label='Previous')
+                  span(aria-hidden='true') &laquo;
+                  span.sr-only Anterior
+              li.page-item
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + previousPage) #{previousPage}
+            li.page-item
+              a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + currentPage) #{page}
+            unless isLastPage
+              li.page-item
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + nextPage) #{nextPage}
+              li.page-item
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + nextPage aria-label='Next')
+                  span(aria-hidden='true') &raquo;
+                  span.sr-only Siguiente
 
