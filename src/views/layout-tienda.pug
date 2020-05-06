@@ -45,7 +45,7 @@ html
             div.row.ml-3
               each categoria in categorias_mujer
                 div.col-sm-3
-                  a.link-color.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+                  a.link-color.nav-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id) #{categoria.nombre}
 
         div#hombre.collapse(data-parent="#accordion")
           if categorias_hombre.length == 0
@@ -55,7 +55,7 @@ html
             div.row.ml-3
               each categoria in categorias_hombre
                 div.col-sm-3
-                  a.link-color.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+                  a.link-color.nav-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id) #{categoria.nombre}
 
         div#niynos.collapse(data-parent="#accordion")
           if categorias_ninos.length == 0
@@ -65,7 +65,7 @@ html
             div.row.ml-3
               each categoria in categorias_ninos
                 div.col-sm-3
-                  a.link-color.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+                  a.link-color.nav-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id) #{categoria.nombre}
         
         div#otros.collapse(data-parent="#accordion")
           if categorias_otro.length == 0
@@ -75,7 +75,7 @@ html
             div.row.ml-3
               each categoria in categorias_otro
                 div.col-sm-3
-                  a.link-color.nav-link(href="/categoria/mostrar/" + categoria._id) #{categoria.nombre}
+                  a.link-color.nav-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id) #{categoria.nombre}
 
         hr       
 

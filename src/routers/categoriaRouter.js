@@ -6,45 +6,6 @@ const Tienda = require("../models/tienda");
 const Subcategoria = require("../models/subcategoria");
 const Articulo = require("../models/articulo");
 
-
-router.get("/mostrar/:id", (req, res) => {
-  Categoria.findById(req.params.id, function (err, categoria) {
-    if (err) {
-      throw err;
-    } else {
-      Tienda.findById(categoria.tienda, function (err, tienda) {
-        if (err) {
-          throw err;
-        } else {
-          Categoria.find({tienda: tienda.id}, (err, categorias) => {
-            if (err) {
-              throw err;
-            } else {
-              Subcategoria.find({categoria:categoria._id }, (err, subcategoria) => {
-                if (err) {
-                  throw err;
-                } else {
-                  Articulo.find({categoria: categoria}, (err, articulos) => {
-                    if (err) {
-                      throw err;
-                    } else {
-                      var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
-                      var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
-                      var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
-                      var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
-                      return res.render("categoria/mostrar", { articulos:articulos, subcategorias:subcategoria, categoria: categoria, tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
-                    }
-                  });
-                }
-              });
-            }
-          });
-        }
-      });
-    }
-  });
-});
-
 router.get("/crear", (req, res) => {
   if (!req.user || req.user.rol != "TIENDA") return res.redirect("/");
   else res.render("categoria/crear");
