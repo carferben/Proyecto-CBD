@@ -127,3 +127,7 @@ div>form {
 .input-group-prepend {
     margin-right: 0em;
 }
+
+.link-color {
+    color: black;
+}

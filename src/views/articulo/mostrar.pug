@@ -1,0 +1,32 @@
+extends ../layout-tienda
+
+block content
+  div.container-fluid
+    div.row.bg-faded
+
+      div.col-md-5.pl-md-5
+        div.card.card-body.h-100.justify-content-center.p-0
+          img.card-img-top.h-100(src=articulo.imagen)
+      
+      div.col-md-7.pr-md-5
+        div.card.h-100
+          div.card-body
+            h3.card-title.text-center #{articulo.nombre}
+            hr
+            p.card-text  #{articulo.descripcion} 
+          div.card-footer
+            p.card-text.m-0 
+              small.text-muted Tallas disponibles: #{articulo.tallas}   
+            p.card-text.m-0 
+              small.text-muted Precio: #{articulo.precio}
+            p.card-text.m-0 
+              small.text-muted Material: #{articulo.material}
+            p.card-text.m-0 
+              small.text-muted Lugar de fabricación: #{articulo.lugar_de_fabricacion} 
+
+    div.row
+      div.col-md-12.pr-md-5
+        if isAuthenticated && user.id == tienda.usuario
+          div.text-right.mt-3
+            a.btn(href='/articulo/editar' + articulo.id role="button") Editar artículo
+

@@ -15,38 +15,58 @@ block content
             div.col-md-12
               h5.text-center Subcategorías de #{categoria.nombre}
               hr
-              each subcategoria in subcategorias
-                h6 #{subcategoria.nombre}
-                  a.mr-3.mt-2(href='/subcategoria/editar/' + subcategoria.id role="button") Editar
+              if subcategorias.length == 0
+                h6.text-center No hay aún subcategorías disponibles
+                if isAuthenticated && user.id == tienda.usuario
+                  h6.text-center ¡Crea alguna! Haz click en el siguiente botón
+              else
+                a.link-color(href="/categoria/mostrar/" + categoria._id)
+                  h6  Todos los artículos
+                each subcategoria in subcategorias
+                  a.link-color(href="/subcategoria/articulos/" + subcategoria.id)
+                    h6 #{subcategoria.nombre}
               if isAuthenticated && user.id == tienda.usuario
                 div.text-center
                   a.btn.mr-3.mt-2(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría
       
       div.col-md-9
         div.row
-          div.col-md-4
-            input.form-control.mt-2(type='text' placeholder='Buscador' aria-label='Search')
+          div.col-md-5
+            label(for='buscador')
+              input.form-control.mt-2(type='text' placeholder='Buscador' aria-label='Search')
+            button.btn.ml-2(type='submit') Buscar
 
-          div.col-md-8
+          div.col-md-7
             if isAuthenticated && user.id == tienda.usuario
               div.text-right
                 a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
                 a.btn.mr-3.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría #{categoria.nombre}
-                a.btn.mr-3.mt-2(href='#' + categoria.id role="button") Editar subcategoría XXXX
+ 
       
 
         div.card-deck.mt-3
-          each articulo in articulos
-            div.col-md-12.col-lg-3.d-flex.align-items-stretch.pb-3
-              div.card.w-100
-                img.card-img-top(src=articulo.imagen)
-                div.card-body
-                  h3.card-title.text-center #{articulo.nombre}
-                div.card-footer
-                  p.card-text.m-0 
-                    small.text-muted Precio: #{articulo.precio} €
-                  p.card-text.m-0
-                    small.text-muted Tallas disponibles: #{articulo.tallas}
+          if articulos.length == 0
+            div.col-md-12.mt-5
+              div.jumbotron.text-center
+                h5 No tienen ningún artículo disponible
+                  i.fas.fa-sad-tear.fa-fw
+                if isAuthenticated && user.id == tienda.usuario
+                  h5 Si quieres crear alguno, es tan fácil como hacer click en este botón
+                  a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+
+          else
+            each articulo in articulos
+              div.col-md-12.col-lg-3.d-flex.align-items-stretch.pb-3
+                div.card.w-100
+                  a(href="/articulo/mostrar/" + articulo._id)
+                    img.card-img-top(src=articulo.imagen)
+                  div.card-body
+                    h3.card-title.text-center #{articulo.nombre}
+                  div.card-footer
+                    p.card-text.m-0 
+                      small.text-muted Precio: #{articulo.precio} €
+                    p.card-text.m-0
+                      small.text-muted Tallas disponibles: #{articulo.tallas}
                 
     
           

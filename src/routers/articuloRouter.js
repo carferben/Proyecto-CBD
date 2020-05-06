@@ -68,4 +68,17 @@ router.post("/crear", function (req, res) {
   }
 });
 
+router.get("/mostrar/:id", function (req, res) {
+  Articulo.findById(req.params.id, function (err, articulo) {
+    if (err) {
+      throw err;
+    } else {
+      //TODO No me sale, como tu dices... me ayudas? 
+      return res.render("articulo/mostrar", {articulo:articulo, tienda:tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
+    }
+  });
+});
+
+
+
 module.exports = router;
