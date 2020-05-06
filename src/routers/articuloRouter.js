@@ -79,10 +79,10 @@ router.get("/crear/:categoria", (req, res) => {
   }
 });
 
-router.post("/crear", function (req, res) {
+router.post("/crear", async function (req, res) {
   if (!req.user || req.user.rol != "TIENDA") return res.redirect("/");
   else {
-    articulo = new Articulo();
+    var articulo = new Articulo();
 
     articulo._id = new mongoose.Types.ObjectId();
     articulo.nombre = req.body.nombre;
@@ -95,11 +95,12 @@ router.post("/crear", function (req, res) {
     var subcat = JSON.parse(req.body.subcategoria);
     articulo.subcategoria = subcat._id;
     articulo.categoria = subcat.categoria;
+    var tienda = await Tienda.findOne({usuario: req.user.id});
     articulo.save(function (err) {
       if (err) {
         console.log("Error al crear artículo: " + err);
         throw err;
-      } else return res.redirect("/tienda/mostrar");
+      } else return res.redirect("/articulo/listar/" + tienda._id + "/" + articulo.categoria);
     });
   }
 });
