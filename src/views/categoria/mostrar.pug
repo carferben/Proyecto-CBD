@@ -59,8 +59,8 @@ block content
 
           else
             each articulo in articulos
-              div.col-md-12.col-lg-3.d-flex.align-items-stretch.pb-3
-                div.card.w-100
+              div.col-md-12.col-lg-6.col-xl-4.d-flex.align-items-stretch.pb-3.pr-0.pl-0.m-0
+                div.card.w-100.m-1
                   a(href="/articulo/mostrar/" + articulo._id)
                     img.card-img-top(src=articulo.imagen)
                   div.card-body
@@ -70,6 +70,5 @@ block content
                       small.text-muted Precio: #{articulo.precio} €
                     p.card-text.m-0
                       small.text-muted Tallas disponibles: #{articulo.tallas}
-
 
 
