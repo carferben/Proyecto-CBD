@@ -20,7 +20,7 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
   if (req.params.subcategoria) {
     count = await Articulo.countDocuments({
       subcategoria: req.params.subcategoria,
-    });
+    }).or([{ nombre: { $regex: re } }, { descripcion: { $regex: re } }]);
     articulos = await Articulo.find({
       subcategoria: req.params.subcategoria,
     })
@@ -30,7 +30,7 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
   } else {
     count = await Articulo.countDocuments({
       categoria: categoria._id,
-    });
+    }).or([{ nombre: { $regex: re } }, { descripcion: { $regex: re } }]);
     articulos = await Articulo.find({
       categoria: categoria._id,
     })
