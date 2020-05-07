@@ -8,10 +8,6 @@ const subcategoriaSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  descripcion: {
-    type: String,
-    required: true
-  },
   categoria: { type: Schema.Types.ObjectId, ref: 'Categoria' }
 });
 

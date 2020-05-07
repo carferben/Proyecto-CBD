@@ -51,7 +51,6 @@ router.post("/crear/:id", function (req, res) {
 
     subcategoria._id = new mongoose.Types.ObjectId();
     subcategoria.nombre = req.body.nombre;
-    subcategoria.descripcion = req.body.descripcion;
 
     Categoria.findById(req.params.id, (err, categoria) => {
       if (err) {
@@ -97,7 +96,6 @@ router.post("/editar/:id", function (req, res) {
         throw err;
       } else {
         subcategoria.nombre = req.body.nombre;
-        subcategoria.descripcion = req.body.descripcion;
 
         subcategoria.save(function (err) {
           if (err) {
