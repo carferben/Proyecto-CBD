@@ -28,7 +28,7 @@ block content
       div.col-md-12.pr-md-5
         if isAuthenticated && user.id == tienda.usuario
           div.text-right.mt-3
-            a.btn.delete.mr-2(href='/articulo/borrar/' + articulo.id  role="button") Borrar artículo
+            a.btn.delete.mr-2(href='/articulo/borrar/' + articulo.id + '/' + tienda.id + '/' + articulo.categoria role="button") Borrar artículo
             a.btn.mr-2(href='/articulo/editar/' + articulo.id + "/" + articulo.categoria role="button") Editar artículo
             a.btn.cancel(href='javascript: history.go(-1)') Volver
 

@@ -73,4 +73,50 @@ router.post("/editar/:id", function (req, res) {
   }
 });
 
+router.get("/borrar/:categoria/:tienda", async function (req, res) {
+  const tienda = await Tienda.findById(req.params.tienda);
+  Categoria.findById(req.params.categoria, async function (err, categoria) {
+    if (err) {
+      throw err; 
+    } else {
+      Subcategoria.find({categoria:categoria}, async function (err, subcategoria) {
+        if (err) {
+          throw err; 
+        } else {
+          Articulo.find({subcategoria:subcategoria}, async function (err, articulos) {
+            if (err) {
+              throw err; 
+            } else {
+              for (let i = 0; i < articulos.length; i++) {
+                articulos[i].remove(err => { 
+                  if (err) {
+                    console.log("Error al borrar artículo: " + err);
+                    throw err;
+                  }
+                });
+              }
+              for (let i = 0; i < subcategoria.length; i++) {
+                subcategoria[i].remove(err => { 
+                  if (err) {
+                    console.log("Error al borrar subcategoria: " + err);
+                    throw err;
+                  }
+                });
+              }
+              categoria.remove(err => { 
+                if (err) {
+                  console.log("Error al borrar categoria: " + err);
+                  throw err;
+                } else {
+                  return res.redirect("/tienda/mostrar/" + tienda._id);
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+});
+
 module.exports = router;

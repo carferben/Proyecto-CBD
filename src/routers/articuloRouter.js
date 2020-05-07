@@ -13,7 +13,7 @@ router.get(
     if (!page) page = 0;
     const tienda = await Tienda.findById(req.params.tienda);
     const categoria = await Categoria.findById(req.params.categoria);
-
+    const subcategoria = await Subcategoria.findById(req.params.subcategoria);
     var count;
     var articulos;
     if (req.params.subcategoria) {
@@ -49,6 +49,7 @@ router.get(
     return res.render("categoria/mostrar", {
       tienda: tienda,
       categorias: categorias,
+      subcategoria:subcategoria,
       subcategorias: subcategorias,
       categoria: categoria,
       articulos: articulos,
@@ -226,6 +227,26 @@ router.get("/mostrar/:articulo/:tienda", async function (req, res) {
         categorias_hombre: categorias_hombre,
         categorias_ninos: categorias_ninos,
         categorias_otro: categorias_otro,
+      });
+    }
+  });
+});
+
+router.get("/borrar/:articulo/:tienda/:categoria", async function (req, res) {
+  Articulo.findById(req.params.articulo, async function (err, articulo) {
+    if (err) {
+      throw err; 
+    } else {
+      const tienda = await Tienda.findById(req.params.tienda);
+      const categoria = await Categoria.findById(req.params.categoria);
+     
+      articulo.remove(err => { 
+        if (err) {
+          console.log("Error al borrar artículo: " + err);
+          throw err;
+        } else {
+          return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
+        }
       });
     }
   });
