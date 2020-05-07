@@ -12,7 +12,7 @@ block content
         - if (message == "user_exists") message = "El usuario ya existe"
         - if (message == "email_exists") message = "El email ya existe"
         if (message != "")
-          p.alert.alert-danger #{message}
+          p#error_message.alert.alert-danger #{message}
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend
@@ -20,12 +20,20 @@ block content
                 i.fa.fa-user-circle.fa-fw
             input#nombre_de_usuario.form-control(type='text' placeholder='Nombre de usuario' name='nombre_de_usuario' required='true')
 
+        span#password_error.text-danger
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend
               div.input-group-text
                 i.fa.fa-key.fa-fw
             input#password.form-control(type='password' placeholder='Contraseña' name='password' required='true')
+
+        div.form-group
+          div.input-group.mb-2
+            div.input-group-prepend
+              div.input-group-text
+                i.fa.fa-key.fa-fw
+            input#confirm_password.form-control(type='password' placeholder='Confirmar contraseña' name='confirm_password' required='true')
 
         div.form-group
           div.input-group.mb-2
