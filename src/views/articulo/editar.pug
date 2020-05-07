@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+  div.container.p-0
+    p #{message}
+    form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+      h4.text-center.mb-4 Editar artículo: #{articulo.nombre}
+      div.row
+        input#_id.form-control(type='hidden' name='_id' value=articulo._id)
+
+        div.col-sm-12.col-md-12.col-lg-12.w-100
+          div.form-group
+            label(for='nombre') Nombre
+            input#nombre.form-control(type='text' value=articulo.nombre placeholder='Nombre' name='nombre' required='true')
+
+          div.form-group
+            label(for='descripcion') Descripción
+            textarea#descripcion.form-control(rows="4"  value=articulo.descripcion placeholder='Descripción' name='descripcion' required='true')
+
+          div.form-group
+            label(for='imagen') Foto
+            input#imagen.form-control(type='url' value=articulo.imagen placeholder='https://images.pexels.com/photos/167706/pexels-photo-167706.jpeg' name='imagen')
+
+          div.form-group
+            label(for='precio') Precio
+            input#precio.form-control(type='number' placeholder='19,99' value=articulo.precio name='precio' required='true' min="0"  step="any")
+
+          div.form-group
+            label(for='lugar_de_fabricacion') Lugar de fabricación
+            input#lugar_de_fabricacion.form-control(type='text'  placeholder='España' value=articulo.lugar_de_fabricacion name='lugar_de_fabricacion')
+
+          div.form-group
+            label(for='material') Material
+            input#material.form-control(type='text' value=articulo.material placeholder='Material' name='material')
+
+          div.form-group
+            label(for='tallas') Tallas
+            input#tallas.form-control(type='text' value=articulo.tallas placeholder='XS, S, L' name='tallas')
+
+          div.form-group
+            div
+              label(for='subcategoria') Subcategoria
+              select#subcategoria.form-control(name='subcategoria')
+                each subcategoria in subcategorias
+                  option(value=articulo.subcategorias) #{subcategoria.nombre}
+
+
+          div.text-right
+            a.btn.cancel.mr-3(href='javascript: history.go(-1)') Cancelar
+            button.btn(type='submit') Guardar

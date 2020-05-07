@@ -29,5 +29,6 @@ block content
         if isAuthenticated && user.id == tienda.usuario
           div.text-right.mt-3
             a.btn.mr-3(href='/categoria/crear' role="button") Crear nueva categoría  
-            a.btn(href='/tienda/editar' role="button") Editar tienda
+            a.btn.mr-3(href='/tienda/editar' role="button") Editar tienda
+            a.btn.delete(href='/tienda/borrar/' + tienda.id  role="button") Borrar tienda
 

@@ -3,7 +3,11 @@ extends ../layout-tienda
 block content
 
   div.mr-5.ml-5
-    h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo})
+    if !subcategoria
+      h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo})
+
+    if subcategoria
+      h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo}) - #{subcategoria.nombre}
 
     div.row
       div.col-md-3
@@ -42,8 +46,14 @@ block content
           div.col-md-7
             if isAuthenticated && user.id == tienda.usuario
               div.text-right
-                a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
-                a.btn.mr-3.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría #{categoria.nombre}
+                if subcategoria
+                  a.btn.mt-2.mr-3(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                  a.btn.mr-3.mt-2(href='/subcategoria/editar/' + subcategoria.id role="button") Editar subcategoría
+                  a.btn.delete.mt-2(href='/subcategoria/borrar/' + subcategoria.id + '/' + tienda.id + '/' + categoria.id role="button") Borrar subcategoría
+                if !subcategoria
+                  a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                  a.btn.mt-2.mr-3(href='/categoria/editar/' + categoria.id role="button") Editar categoría
+                  a.btn.delete.mt-2(href='/categoria/borrar/' + categoria.id + '/' + tienda.id  role="button") Borrar categoría
 
 
 

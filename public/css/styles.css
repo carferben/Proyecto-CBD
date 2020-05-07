@@ -137,4 +137,12 @@ div>form {
 
 }
 
+.cancel {
+    background-color: grey;
+}
+
+.delete {
+    background-color: #d63232;
+}
+
 
