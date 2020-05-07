@@ -11,6 +11,7 @@ block content
         h4.text-center.mb-4 Registro como dueño de una tienda
         - if (message == "user_exists") message = "El usuario ya existe"
         - if (message == "email_exists") message = "El email ya existe"
+        - if (message == "dni_exists") message = "El dni ya existe"
         if (message != "")
           p#error_message.alert.alert-danger #{message}
         div.form-group
