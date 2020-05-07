@@ -14,6 +14,7 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
   var re = new RegExp(search, "i");
   const tienda = await Tienda.findById(req.params.tienda);
   const categoria = await Categoria.findById(req.params.categoria);
+  const subcategoria = await Subcategoria.findById(req.params.subcategoria);
 
   var count;
   var articulos;
@@ -50,6 +51,7 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
   return res.render("categoria/mostrar", {
     tienda: tienda,
     categorias: categorias,
+    subcategoria:subcategoria,
     subcategorias: subcategorias,
     categoria: categoria,
     articulos: articulos,
@@ -232,21 +234,15 @@ router.get("/mostrar/:articulo/:tienda", async function (req, res) {
 });
 
 router.get("/borrar/:articulo/:tienda/:categoria", async function (req, res) {
-  Articulo.findById(req.params.articulo, async function (err, articulo) {
+  const articulo = await Articulo.findById(req.params.articulo);
+  const tienda = await Tienda.findById(req.params.tienda);
+  const categoria = await Categoria.findById(req.params.categoria);
+  articulo.remove(err => { 
     if (err) {
-      throw err; 
+      console.log("Error al borrar artículo: " + err);
+      throw err;
     } else {
-      const tienda = await Tienda.findById(req.params.tienda);
-      const categoria = await Categoria.findById(req.params.categoria);
-     
-      articulo.remove(err => { 
-        if (err) {
-          console.log("Error al borrar artículo: " + err);
-          throw err;
-        } else {
-          return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
-        }
-      });
+      return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
     }
   });
 });
