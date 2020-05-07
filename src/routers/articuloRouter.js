@@ -125,6 +125,88 @@ router.post("/crear", async function (req, res) {
   }
 });
 
+router.get("/editar/:articulo/:categoria", (req, res) => {
+  if (!req.user || req.user.rol != "TIENDA") return res.redirect("/");
+  else {
+    Articulo.findById(req.params.articulo, async function (err, articulo) {
+      if (err) {
+        throw err; 
+      } else {
+      Tienda.findOne({ usuario: req.user._id }, (err, tienda) => {
+        if (err || !tienda) {
+          throw err;
+        }
+        Categoria.find({ tienda: tienda.id }, (err, categorias) => {
+          if (err) {
+            throw err;
+          }
+          var categoria_mujer = categorias.filter((c) => c.tipo == "MUJER");
+          var categoria_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
+          var categoria_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
+          var categoria_otro = categorias.filter((c) => c.tipo == "OTROS");
+          Subcategoria.find(
+            { categoria: req.params.categoria },
+            (err, subcategorias) => {
+              if (err) {
+                throw err;
+              }
+              res.render("articulo/editar", {
+                tienda: tienda,
+                articulo:articulo,
+                categorias: categorias,
+                subcategorias: subcategorias,
+                categorias_mujer: categoria_mujer,
+                categorias_hombre: categoria_hombre,
+                categorias_ninos: categoria_ninos,
+                categorias_otro: categoria_otro,
+              });
+            }
+          );
+        });
+      });
+      }
+    });
+  }
+});
+
+router.post("/editar/:articulo/:categoria", function (req, res) {
+  usuario = req.user;
+  if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
+  else {
+    Articulo.findById(req.params.articulo, async function (err, articulo) {
+      if (err) {
+        throw err;
+      } else {
+
+        articulo.nombre = req.body.nombre;
+        articulo.descripcion = req.body.descripcion;
+        articulo.material = req.body.material;
+        articulo.imagen = req.body.imagen;
+        articulo.precio = req.body.precio;
+        articulo.lugar_de_fabricacion = req.body.lugar_de_fabricacion;
+        articulo.tallas = req.body.tallas;
+        Subcategoria.find({nombre:req.body.subcategoria}, async function (err, subcategoria) {
+          if (err) {
+            throw err;
+          } else {
+            console.log(subcategoria);
+            articulo.subcategoria = subcategoria[0]._id;
+            articulo.categoria = subcategoria[0].categoria._id;
+            var tienda = await Tienda.findOne({ usuario: req.user.id });
+
+            articulo.save(function (err) {
+              if (err) {
+                console.log("Error al editar artículo: " + err);
+                throw err;
+              } else return res.redirect("/articulo/listar/" + tienda._id + "/" + articulo.categoria);
+            });
+          }
+        });
+      }
+    });
+  }
+});
+
 router.get("/mostrar/:articulo/:tienda", async function (req, res) {
   Articulo.findById(req.params.articulo, async function (err, articulo) {
     if (err) {
