@@ -2,7 +2,15 @@ extends layout
 
 block content
   div.container
-    h2.text-center.m-3 Nuestras tiendas
+    div.row.pr-3.pl-3
+      div.col-md-12.col-lg-6
+        h2 Nuestras tiendas
+      div.col-md-12.col-lg-6
+        form.pl-lg-3.mb-1.mt-1(method="get" style="box-shadow: none;" action="/0")
+          div.input-group
+            input#search.form-control(type='text' placeholder='Buscador' aria-label='Search' name="search")
+            div.input-group-append
+              button.btn(type='submit') Buscar
     div.card-deck
       each tienda in tiendas
         div.col-md-12.col-lg-6.d-flex.align-items-stretch.pb-3
@@ -27,19 +35,20 @@ block content
         - var previousPage = currentPage - 1
         - var nextPage = currentPage + 1
         - var isLastPage = nextPage * 4 >= totalItems
-        if previousPage >= 0
+        unless isLastPage && currentPage == 0
+          if previousPage >= 0
+            li.page-item
+              a.page-link(href='/' + previousPage + search aria-label='Previous')
+                span(aria-hidden='true') &laquo;
+                span.sr-only Anterior
+            li.page-item
+              a.page-link(href='/' + previousPage + search) #{previousPage}
           li.page-item
-            a.page-link(href='/' + previousPage aria-label='Previous')
-              span(aria-hidden='true') &laquo;
-              span.sr-only Anterior
-          li.page-item
-            a.page-link(href='/' + previousPage) #{previousPage}
-        li.page-item
-          a.page-link(href='/' + currentPage) #{page}
-        unless isLastPage
-          li.page-item
-            a.page-link(href='/' + nextPage) #{nextPage}
-          li.page-item
-            a.page-link(href='/' + nextPage aria-label='Next')
-              span(aria-hidden='true') &raquo;
-              span.sr-only Siguiente
+            a.page-link(href='/' + currentPage + search) #{page}
+          unless isLastPage
+            li.page-item
+              a.page-link(href='/' + nextPage + search) #{nextPage}
+            li.page-item
+              a.page-link(href='/' + nextPage + search aria-label='Next')
+                span(aria-hidden='true') &raquo;
+                span.sr-only Siguiente
