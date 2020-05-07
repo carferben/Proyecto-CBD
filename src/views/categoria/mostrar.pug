@@ -1,7 +1,5 @@
 extends ../layout-tienda
 
-
-
 block content
 
   div.mr-5.ml-5
@@ -34,10 +32,12 @@ block content
 
       div.col-md-9
         div.row
-          div.col-md-5
-            label(for='buscador')
-              input.form-control.mt-2(type='text' placeholder='Buscador' aria-label='Search')
-            button.btn.ml-2(type='submit') Buscar
+          div.col-md-12.col-lg-8.col-xl-6.p-0
+            form(method="get" style="box-shadow: none;")
+              div.input-group
+                input#search.form-control(type='text' placeholder='Buscador' aria-label='Search' name="search")
+                div.input-group-append
+                  button.btn(type='submit') Buscar
 
           div.col-md-7
             if isAuthenticated && user.id == tienda.usuario

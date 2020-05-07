@@ -34,4 +34,5 @@ const articuloSchema = mongoose.Schema({
   categoria: { type: Schema.Types.ObjectId, ref: 'Categoria' }
 });
 
+
 const Articulo = (module.exports = mongoose.model("Articulo", articuloSchema));

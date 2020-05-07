@@ -6,61 +6,61 @@ const Tienda = require("../models/tienda");
 const Subcategoria = require("../models/subcategoria");
 const Categoria = require("../models/categoria");
 
-router.get(
-  "/listar/:tienda/:categoria/:subcategoria?",
-  async (req, res) => {
-    var page = req.query.page;
-    if (!page) page = 0;
-    const tienda = await Tienda.findById(req.params.tienda);
-    const categoria = await Categoria.findById(req.params.categoria);
+router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
+  var page = req.query.page;
+  if (!page) page = 0;
+  var search = req.query.search;
+  if (!search) search = "";
+  var re = new RegExp(search, "i");
+  const tienda = await Tienda.findById(req.params.tienda);
+  const categoria = await Categoria.findById(req.params.categoria);
 
-    var count;
-    var articulos;
-    if (req.params.subcategoria) {
-      count = await Articulo.countDocuments({
-        subcategoria: req.params.subcategoria,
-      });
-      articulos = await Articulo.find(
-        {
-          subcategoria: req.params.subcategoria,
-        },
-        {},
-        { skip: 8 * page, limit: 8 }
-      );
-    } else {
-      count = await Articulo.countDocuments({ categoria: categoria._id });
-      articulos = await Articulo.find(
-        {
-          categoria: categoria._id,
-        },
-        {},
-        { skip: 8 * page, limit: 8 }
-      );
-    }
-    const categorias = await Categoria.find({ tienda: tienda._id });
-    const subcategorias = await Subcategoria.find({
-      categoria: categoria,
+  var count;
+  var articulos;
+  if (req.params.subcategoria) {
+    count = await Articulo.countDocuments({
+      subcategoria: req.params.subcategoria,
     });
-
-    var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
-    var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
-    var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
-    var categorias_otro = categorias.filter((c) => c.tipo == "OTROS");
-    return res.render("categoria/mostrar", {
-      tienda: tienda,
-      categorias: categorias,
-      subcategorias: subcategorias,
-      categoria: categoria,
-      articulos: articulos,
-      page: page,
-      totalItems: count,
-      categorias_mujer: categorias_mujer,
-      categorias_hombre: categorias_hombre,
-      categorias_ninos: categorias_ninos,
-      categorias_otro: categorias_otro,
+    articulos = await Articulo.find({
+      subcategoria: req.params.subcategoria,
+    })
+      .or([{ nombre: { $regex: re } }, { descripcion: { $regex: re } }])
+      .skip(8 * page)
+      .limit(8);
+  } else {
+    count = await Articulo.countDocuments({
+      categoria: categoria._id,
     });
+    articulos = await Articulo.find({
+      categoria: categoria._id,
+    })
+      .or([{ nombre: { $regex: re } }, { descripcion: { $regex: re } }])
+      .skip(8 * page)
+      .limit(8);
   }
-);
+  const categorias = await Categoria.find({ tienda: tienda._id });
+  const subcategorias = await Subcategoria.find({
+    categoria: categoria,
+  });
+
+  var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
+  var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
+  var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
+  var categorias_otro = categorias.filter((c) => c.tipo == "OTROS");
+  return res.render("categoria/mostrar", {
+    tienda: tienda,
+    categorias: categorias,
+    subcategorias: subcategorias,
+    categoria: categoria,
+    articulos: articulos,
+    page: page,
+    totalItems: count,
+    categorias_mujer: categorias_mujer,
+    categorias_hombre: categorias_hombre,
+    categorias_ninos: categorias_ninos,
+    categorias_otro: categorias_otro,
+  });
+});
 
 router.get("/crear/:categoria", (req, res) => {
   if (!req.user || req.user.rol != "TIENDA") return res.redirect("/");
@@ -128,7 +128,7 @@ router.post("/crear", async function (req, res) {
 router.get("/mostrar/:articulo/:tienda", async function (req, res) {
   Articulo.findById(req.params.articulo, async function (err, articulo) {
     if (err) {
-      throw err; 
+      throw err;
     } else {
       const tienda = await Tienda.findById(req.params.tienda);
       const categorias = await Categoria.find({ tienda: tienda._id });
