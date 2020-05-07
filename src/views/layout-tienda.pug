@@ -8,7 +8,8 @@ html
         div.d-flex.flex-row.justify-content-center
           h1.mr-2
             i.fas.fa-shopping-bag 
-          h1 #{tienda.nombre}
+          a.link-color(href="/tienda/mostrar/" + tienda._id)
+            h1 #{tienda.nombre}
 
       nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.mb-3
         button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar-collapse")

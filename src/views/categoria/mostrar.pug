@@ -61,7 +61,7 @@ block content
             each articulo in articulos
               div.col-md-12.col-lg-6.col-xl-4.d-flex.align-items-stretch.pb-3.pr-0.pl-0.m-0
                 div.card.w-100.m-1
-                  a(href="/articulo/mostrar/" + articulo._id)
+                  a(href="/articulo/mostrar/" + articulo._id + "/" + tienda._id)
                     img.card-img-top(src=articulo.imagen)
                   div.card-body
                     h3.card-title.text-center #{articulo.nombre}

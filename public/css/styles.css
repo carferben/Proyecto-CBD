@@ -131,3 +131,10 @@ div>form {
 .link-color {
     color: black;
 }
+
+.link-color-title , .link-color-title:hover{
+    color: black;
+
+}
+
+

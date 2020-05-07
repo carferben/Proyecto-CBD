@@ -42,5 +42,6 @@ block content
                 each subcategoria in subcategorias
                   option(value=subcategoria) #{subcategoria.nombre}
 
-          div.text-right
-            button.btn(type='submit') Guardar
+          div.text-right.mt-3
+            button.btn.mr-3(type='submit') Guardar
+            a.btn(href='javascript: history.go(-1)') Volver

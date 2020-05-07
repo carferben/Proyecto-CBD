@@ -125,19 +125,25 @@ router.post("/crear", async function (req, res) {
   }
 });
 
-router.get("/mostrar/:id", function (req, res) {
-  Articulo.findById(req.params.id, function (err, articulo) {
+router.get("/mostrar/:articulo/:tienda", async function (req, res) {
+  Articulo.findById(req.params.articulo, async function (err, articulo) {
     if (err) {
-      throw err;
+      throw err; 
     } else {
-      //TODO No me sale, como tu dices... me ayudas?
+      const tienda = await Tienda.findById(req.params.tienda);
+      const categorias = await Categoria.find({ tienda: tienda._id });
+      var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
+      var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
+      var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
+      var categorias_otro = categorias.filter((c) => c.tipo == "OTROS");
       return res.render("articulo/mostrar", {
-        articulo: articulo,
         tienda: tienda,
-        categorias_mujer: categoria_mujer,
-        categorias_hombre: categoria_hombre,
-        categorias_ninos: categoria_ninos,
-        categorias_otro: categoria_otro,
+        categorias: categorias,
+        articulo: articulo,
+        categorias_mujer: categorias_mujer,
+        categorias_hombre: categorias_hombre,
+        categorias_ninos: categorias_ninos,
+        categorias_otro: categorias_otro,
       });
     }
   });
