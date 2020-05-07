@@ -6,36 +6,6 @@ const Categoria = require("../models/categoria");
 const Tienda = require("../models/tienda");
 const Articulo = require("../models/articulo");
 
-router.get("/articulos/:tienda/:categoria/:subcategoria", async function (
-  req,
-  res
-) {
-  const tienda = await Tienda.findById(req.params.tienda);
-  const articulos = await Articulo.find({
-    subcategoria: req.params.subcategoria,
-  });
-  const categoria = await Categoria.findById(req.params.categoria);
-  const categorias = await Categoria.find({ tienda: tienda._id });
-  const subcategorias = await Subcategoria.find({
-    categoria: categoria,
-  });
-
-  var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
-  var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
-  var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
-  var categorias_otro = categorias.filter((c) => c.tipo == "OTROS");
-  return res.render("categoria/mostrar", {
-    tienda: tienda,
-    categorias: categorias,
-    subcategorias: subcategorias,
-    categoria: categoria,
-    articulos: articulos,
-    categorias_mujer: categorias_mujer,
-    categorias_hombre: categorias_hombre,
-    categorias_ninos: categorias_ninos,
-    categorias_otro: categorias_otro,
-  });
-});
 
 router.get("/crear/:id", (req, res) => {
   if (!req.user || req.user.rol != "TIENDA" || !req.params.id)
@@ -108,6 +78,34 @@ router.post("/editar/:id", function (req, res) {
       }
     });
   }
+});
+
+router.get("/borrar/:subcategoria/:tienda/:categoria", async function (req, res) {
+  const tienda = await Tienda.findById(req.params.tienda);
+  const categoria = await Categoria.findById(req.params.categoria);
+  const subcategoria = await Subcategoria.findById(req.params.subcategoria);
+  Articulo.find({subcategoria:subcategoria}, async function (err, articulos) {
+    if (err) {
+      throw err; 
+    } else {
+      for (let i = 0; i < articulos.length; i++) {
+        articulos[i].remove(err => { 
+          if (err) {
+            console.log("Error al borrar artículo: " + err);
+            throw err;
+          }
+        });
+      }
+      subcategoria.remove(err => { 
+        if (err) {
+          console.log("Error al borrar subcategoría: " + err);
+          throw err;
+        } else {
+          return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
+        }
+      });
+    }
+  });
 });
 
 module.exports = router;

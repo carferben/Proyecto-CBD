@@ -27,5 +27,6 @@ block content
           label(for='dni') DNI
           input#dni.form-control(type='text' placeholder='DNI' name='dni' value=usuario.dni required='true')   
 
-        div.text-center
+        div.text-center.mt-2
+          a.btn.delete.mr-3(href='/usuario/borrar' role="button") Borrar cuenta
           button.btn(type='submit') Guardar

@@ -3,7 +3,11 @@ extends ../layout-tienda
 block content
 
   div.mr-5.ml-5
-    h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo})
+    if !subcategoria
+      h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo})
+
+    if subcategoria
+      h2.text-center.m-3 #{categoria.nombre} (#{categoria.tipo}) - #{subcategoria.nombre}
 
     div.row
       div.col-md-3
@@ -34,16 +38,22 @@ block content
         div.row
           div.col-md-12.col-lg-8.col-xl-6.p-0
             form(method="get" style="box-shadow: none;")
-              div.input-group
+              div.input-group.mt-2
                 input#search.form-control(type='text' placeholder='Buscador' aria-label='Search' name="search")
                 div.input-group-append
                   button.btn(type='submit') Buscar
 
-          div.col-md-7
+          div.col-md-12.col-lg-4.col-xl-6.p-0
             if isAuthenticated && user.id == tienda.usuario
               div.text-right
-                a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
-                a.btn.mr-3.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría #{categoria.nombre}
+                if subcategoria
+                  a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                  a.btn.mr-1.mt-2(href='/subcategoria/editar/' + subcategoria.id role="button") Editar subcategoría
+                  a.btn.delete.mr-1.mt-2(href='/subcategoria/borrar/' + subcategoria.id + '/' + tienda.id + '/' + categoria.id role="button") Borrar subcategoría
+                if !subcategoria
+                  a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                  a.btn.mr-1.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría
+                  a.btn.delete.mr-1.mt-2(href='/categoria/borrar/' + categoria.id + '/' + tienda.id  role="button") Borrar categoría
 
 
 
