@@ -23,13 +23,13 @@ module.exports = function (passport) {
         newUser.apellidos = req.body.apellidos;
         newUser.dni = req.body.dni;
         newUser.rol = "TIENDA";
-
         newUser.save(function (err) {
           if (err) {
             var errorMessage = err.errmsg;
             var res;
             if (errorMessage.includes("nombre_de_usuario")) res = "user_exists";
             if (errorMessage.includes("email")) res = "email_exists";
+            if (errorMessage.includes("dni")) res = "dni_exists";
             return done(null, false, req.flash("message", res));
           }
           console.log("Registro de usuario exitoso");
