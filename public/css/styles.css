@@ -145,4 +145,19 @@ div>form {
     background-color: #d63232;
 }
 
+/* MODAL */
+.cancelbtn {
+    background-color: #ccc;
+    color: white;
+}
+
+.modal {
+    position: center; 
+    z-index: 1; 
+    left: 50;
+    overflow: auto; 
+}
+
+
+  
 

@@ -30,5 +30,15 @@ block content
           div.text-right.mt-3
             a.btn.mr-3(href='/categoria/crear' role="button") Crear nueva categoría  
             a.btn.mr-3(href='/tienda/editar' role="button") Editar tienda
-            a.btn.delete(href='/tienda/borrar/' + tienda.id  role="button") Borrar tienda
+            a.btn.delete(role="button" onclick="document.getElementById('id01').style.display='block'") Borrar tienda
 
+
+    div#id01.modal.text-justify-center
+      span.close(onclick="document.getElementById('id01').style.display='none'" title="Close Modal") ×
+      form.modal-content(action="/action_page.php")
+        div.container
+          h1 Borrar tienda
+          p ¿Seguro que quieres borrar la tienda?
+          div.clearfix
+            a.cancelbtn.btn.mr-3(type="button" onclick="document.getElementById('id01').style.display='none'") No
+            a.btn.delete(href='/tienda/borrar/' + tienda.id   role="button" ) Sí
