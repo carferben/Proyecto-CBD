@@ -1,3 +1,12 @@
 div.jumbotron.text-center.mb-0.mt-3.pt-3.pb-3
-  - var date = new Date();
-  p.mb-0 Fecha actual: #{date.getDate()}/#{date.getMonth()+1}/#{date.getFullYear()} #{date.getHours()}:#{date.getMinutes()}
+  div.row
+    div.col
+      - var date = new Date();
+      - var day = date.getDate() >= 10 ? date.getDate() : "0" + date.getDate();
+      - var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : "0" + (date.getMonth() + 1);
+      - var hours = date.getHours() >= 10 ? date.getHours() : "0" + date.getHours();
+      - var minutes = date.getMinutes() >= 10 ? date.getMinutes() : "0" + date.getMinutes();
+      p.mb-0 Fecha actual: #{day}/#{month}/#{date.getFullYear()} #{hours}:#{minutes}
+    div.col
+      a(href="/terminos-y-condiciones")
+        p Términos y condiciones

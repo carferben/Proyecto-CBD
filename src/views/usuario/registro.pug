@@ -64,7 +64,16 @@ block content
               div.input-group-text
                 i.fa.fa-id-card.fa-fw
             input#dni.form-control(type='text' placeholder='DNI' name='dni' required='true')   
-
+        
+        span#terms_error.text-danger
+        div.form-group
+          div.row.pl-3.pr-3
+            div.col-md-1
+              input#terms-and-conditions(type="checkbox" name="terms-and-conditions")
+            div.col-md-11
+              label.form-check-label(for="terms-and-conditions")
+                | Confirmo que he leido y acepto los <a href="/terminos-y-condiciones" target="_blank">términos y condiciones de uso</a>.
+        
         div.text-center.mt-3
           a.btn.cancel.mr-3(href='javascript: history.go(-1)') Cancelar
           button.btn(type='submit') Enviar

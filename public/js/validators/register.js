@@ -6,6 +6,7 @@ function validateForm() {
   var errors = 0;
   errors += validateDNI();
   errors += validatePasswordConfirmation();
+  errors += validateCheckboxConfirmation();
   return errors == 0;
 }
 
@@ -42,6 +43,20 @@ function validatePasswordConfirmation() {
 
   if (error == 0)
     document.getElementById("password_error").innerHTML = null;
+
+  return error;
+}
+
+function validateCheckboxConfirmation() {
+  var checkbox = document.getElementById("terms-and-conditions");
+  var error = 0;
+  if (!checkbox.checked){
+    document.getElementById("terms_error").innerHTML = "Debe aceptar los términos y condiciones";
+    error = 1;
+  }
+
+  if (error == 0)
+    document.getElementById("terms_error").innerHTML = null;
 
   return error;
 }

@@ -28,4 +28,8 @@ router.get("/:page([0-9])*?", async (req, res) => {
   });
 });
 
+router.get("/terminos-y-condiciones", (req, res) => {
+  return res.render("terminos-y-condiciones");
+});
+
 module.exports = router;
