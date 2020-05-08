@@ -47,7 +47,8 @@ block content
             if isAuthenticated && user.id == tienda.usuario
               if subcategoria
                 div.text-right
-                  a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                  if subcategorias.length != 0
+                    a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
                   a.btn.mr-1.mt-2(href='/subcategoria/editar/' + subcategoria.id role="button") Editar subcategoría
                   a.btn.delete.mr-1.mt-2(role="button" data-toggle='modal' data-target='#exampleModal') Borrar subcategoría
 
@@ -67,7 +68,8 @@ block content
 
               if !subcategoria
                 div.text-right
-                  a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                  if subcategorias.length != 0
+                    a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
                   a.btn.mr-1.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría
                   a.btn.delete.mr-1.mt-2(role="button" data-toggle='modal' data-target='#exampleModal') Borrar categoría
     
@@ -93,9 +95,13 @@ block content
               div.jumbotron.text-center
                 h5 No tienen ningún artículo disponible
                   i.fas.fa-sad-tear.fa-fw
-                if isAuthenticated && user.id == tienda.usuario
+                if isAuthenticated && user.id == tienda.usuario && subcategorias.length != 0
                   h5 Si quieres crear alguno, es tan fácil como hacer click en este botón
                   a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                if isAuthenticated && user.id == tienda.usuario && subcategorias.length == 0
+                  h5 Si quieres crear alguno, primero debes crear una subcategoría. Haz click en el siguiente botón
+                  a.btn.mr-3.mt-2(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría
+
 
           else
             each articulo in articulos
