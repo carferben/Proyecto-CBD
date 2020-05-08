@@ -8,11 +8,11 @@
 - [x] Editar articulo
 - [x] Buscador de artículos
 - [x] Ver si se va a quitar o no la descripción de subcategoría (yo la quitaba porque no se donde ponerla :D )
-- [ ] Meter confirmar contraseña en el registro y términos y condiciones
+- [x] Borrar tienda, categoría, subcategoría, artículo (usuario ¿?)
+- [x] Meter confirmar contraseña en el registro y términos y condiciones
+- [x] Buscador de tiendas
 - [ ] Desplegar en heroku ¿?
 - [ ] Validar formularios
-- [ ] Borrar tienda, categoría, subcategoría, artículo (usuario ¿?)
-- [ ] Buscador de tiendas
 ```
 (●'◡'●)      
 (つ .  )つ🌯 

@@ -45,17 +45,49 @@ block content
 
           div.col-md-12.col-lg-4.col-xl-6.p-0
             if isAuthenticated && user.id == tienda.usuario
-              div.text-right
-                if subcategoria
-                  a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+              if subcategoria
+                div.text-right
+                  if subcategorias.length != 0
+                    a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
                   a.btn.mr-1.mt-2(href='/subcategoria/editar/' + subcategoria.id role="button") Editar subcategoría
-                  a.btn.delete.mr-1.mt-2(href='/subcategoria/borrar/' + subcategoria.id + '/' + tienda.id + '/' + categoria.id role="button") Borrar subcategoría
-                if !subcategoria
-                  a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                  a.btn.delete.mr-1.mt-2(role="button" data-toggle='modal' data-target='#exampleModal') Borrar subcategoría
+
+                div#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenter' )
+                  div.modal-dialog(role='document')
+                    div.modal-content
+                      div.modal-header
+                        h4#exampleModalLabel.modal-title.text-center Borrar subcategoría
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                          span(aria-hidden='true') &times;
+                      div.modal-body
+                        p ¿Estás seguro de que quieres borrar esta subcategoría?
+                        p Si la eliminas se borrar todos los artículos que tenga relacionados.
+                      div.modal-footer
+                        a.cancel.btn(type='button' data-dismiss='modal') Cancelar
+                        a.btn.delete(href='/subcategoria/borrar/' + subcategoria.id + '/' + tienda.id + '/' + categoria.id  role="button") Borrar
+
+              if !subcategoria
+                div.text-right
+                  if subcategorias.length != 0
+                    a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
                   a.btn.mr-1.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría
-                  a.btn.delete.mr-1.mt-2(href='/categoria/borrar/' + categoria.id + '/' + tienda.id  role="button") Borrar categoría
+                  a.btn.delete.mr-1.mt-2(role="button" data-toggle='modal' data-target='#exampleModal') Borrar categoría
+    
+                div#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenter' )
+                  div.modal-dialog(role='document')
+                    div.modal-content
+                      div.modal-header
+                        h4#exampleModalLabel.modal-title.text-center Borrar categoría
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                          span(aria-hidden='true') &times;
+                      div.modal-body
+                        p ¿Estás seguro de que quieres borrar esta caegoría?
+                        p Si la eliminas se borrar todas las subcategorías y artículos que tenga relacionados.
+                      div.modal-footer
+                        a.cancel.btn(type='button' data-dismiss='modal') Cancelar
+                        a.btn.delete(href='/categoria/borrar/' + categoria.id + '/' + tienda.id role="button") Borrar
 
-
+      
 
         div.card-deck.mt-3
           if articulos.length == 0
@@ -63,9 +95,13 @@ block content
               div.jumbotron.text-center
                 h5 No tienen ningún artículo disponible
                   i.fas.fa-sad-tear.fa-fw
-                if isAuthenticated && user.id == tienda.usuario
+                if isAuthenticated && user.id == tienda.usuario && subcategorias.length != 0
                   h5 Si quieres crear alguno, es tan fácil como hacer click en este botón
                   a.btn.mr-3.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
+                if isAuthenticated && user.id == tienda.usuario && subcategorias.length == 0
+                  h5 Si quieres crear alguno, primero debes crear una subcategoría. Haz click en el siguiente botón
+                  a.btn.mr-3.mt-2(href='/subcategoria/crear/' + categoria.id role="button") Añadir nueva subcategoría
+
 
           else
             each articulo in articulos

@@ -238,12 +238,8 @@ router.get("/borrar/:articulo/:tienda/:categoria", async function (req, res) {
   const tienda = await Tienda.findById(req.params.tienda);
   const categoria = await Categoria.findById(req.params.categoria);
   articulo.remove(err => { 
-    if (err) {
-      console.log("Error al borrar artículo: " + err);
-      throw err;
-    } else {
+    if (err) throw err;
       return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
-    }
   });
 });
 

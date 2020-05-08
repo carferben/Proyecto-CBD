@@ -28,8 +28,21 @@ block content
       div.col-md-12.pr-md-5
         if isAuthenticated && user.id == tienda.usuario
           div.text-right.mt-3
-            a.btn.delete.mr-2(href='/articulo/borrar/' + articulo.id + '/' + tienda.id + '/' + articulo.categoria role="button") Borrar artículo
+            a.btn.delete.mr-2(role="button" data-toggle='modal' data-target='#exampleModal') Borrar artículo
             a.btn.mr-2(href='/articulo/editar/' + articulo.id + "/" + articulo.categoria role="button") Editar artículo
             a.btn.cancel(href='javascript: history.go(-1)') Volver
+    
+  div#exampleModal.modal.fade.pr-0(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenter' )
+    div.modal-dialog(role='document')
+      div.modal-content
+        div.modal-header
+          h4#exampleModalLabel.modal-title.text-center Borrar artículo
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        div.modal-body
+          p ¿Estás seguro de que quieres borrar este artículo?
+        dov.modal-footer
+          a.cancel.btn(type='button' data-dismiss='modal') Cancelar
+          a.btn.delete(href='/articulo/borrar/' + articulo.id + '/' + tienda.id + '/' + articulo.categoria  role="button") Borrar
 
 
