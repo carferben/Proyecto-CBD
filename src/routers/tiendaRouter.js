@@ -21,7 +21,7 @@ router.get("/mostrar/:id", (req, res) => {
             var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
             var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
             var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
-            var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
+            var categoria_otro = categorias.filter(c => c.tipo == 'OTRO');
             return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
           }
         });
@@ -77,7 +77,7 @@ router.get("/mostrar", (req, res) => {
               var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
               var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
               var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
-              var categoria_otro = categorias.filter(c => c.tipo == 'OTROS');
+              var categoria_otro = categorias.filter(c => c.tipo == 'OTRO');
               return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
             }
           });
@@ -123,7 +123,17 @@ router.post("/editar", function (req, res) {
             console.log("Error al editar la tienda: " + err);
             throw err;
           } else {
-            return res.render("tienda/mostrar", { tienda: tienda });
+            Categoria.find({tienda: tienda.id}, (err, categorias) => {
+              if (err) {
+                throw err;
+              } else {
+                var categoria_mujer = categorias.filter(c => c.tipo == 'MUJER');
+                var categoria_hombre = categorias.filter(c => c.tipo == 'HOMBRE');
+                var categoria_ninos = categorias.filter(c => c.tipo == 'NIÑOS');
+                var categoria_otro = categorias.filter(c => c.tipo == 'OTRO');
+                return res.render("tienda/mostrar", { tienda: tienda, categorias_mujer:categoria_mujer, categorias_hombre:categoria_hombre, categorias_ninos:categoria_ninos, categorias_otro:categoria_otro});
+              }
+            });
           }
         });
       }

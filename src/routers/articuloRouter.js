@@ -47,7 +47,7 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
   var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
   var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
   var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
-  var categorias_otro = categorias.filter((c) => c.tipo == "OTROS");
+  var categorias_otro = categorias.filter((c) => c.tipo == "OTRO");
   return res.render("categoria/mostrar", {
     tienda: tienda,
     categorias: categorias,
@@ -78,7 +78,7 @@ router.get("/crear/:categoria", (req, res) => {
         var categoria_mujer = categorias.filter((c) => c.tipo == "MUJER");
         var categoria_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
         var categoria_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
-        var categoria_otro = categorias.filter((c) => c.tipo == "OTROS");
+        var categoria_otro = categorias.filter((c) => c.tipo == "OTRO");
         Subcategoria.find(
           { categoria: req.params.categoria },
           (err, subcategorias) => {
@@ -145,7 +145,7 @@ router.get("/editar/:articulo/:categoria", (req, res) => {
           var categoria_mujer = categorias.filter((c) => c.tipo == "MUJER");
           var categoria_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
           var categoria_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
-          var categoria_otro = categorias.filter((c) => c.tipo == "OTROS");
+          var categoria_otro = categorias.filter((c) => c.tipo == "OTRO");
           Subcategoria.find(
             { categoria: req.params.categoria },
             (err, subcategorias) => {
@@ -219,7 +219,7 @@ router.get("/mostrar/:articulo/:tienda", async function (req, res) {
       var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
       var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
       var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
-      var categorias_otro = categorias.filter((c) => c.tipo == "OTROS");
+      var categorias_otro = categorias.filter((c) => c.tipo == "OTRO");
       return res.render("articulo/mostrar", {
         tienda: tienda,
         categorias: categorias,

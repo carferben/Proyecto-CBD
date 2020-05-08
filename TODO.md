@@ -1,4 +1,12 @@
-## Tareas por hacer
+```
+(●'◡'●)      
+(つ .  )つ🌯 
+
+(●'◡'●)
+(つ .  )つ❤🥔
+``` 
+
+## Tareas completadas
 ---
 - [x] Mirar en asticuloRouter.js el /mostrar/:id, la vista esta. Además de ver si se puede simplificar las consultas que hago ( yo no lo consigo :'( )
 - [x] Paginar artículos.
@@ -11,12 +19,17 @@
 - [x] Borrar tienda, categoría, subcategoría, artículo (usuario ¿?)
 - [x] Meter confirmar contraseña en el registro y términos y condiciones
 - [x] Buscador de tiendas
-- [ ] Desplegar en heroku ¿?
-- [ ] Validar formularios
-```
-(●'◡'●)      
-(つ .  )つ🌯 
+- [x] Desplegar en heroku ¿?
 
-(●'◡'●)
-(つ .  )つ❤🥔
-``` 
+## Tareas por hacer
+---
+- [ ] Login
+- [ ] DNI: Al editar un usuario
+- [ ] Correo: Al editar un usuario
+- [ ] Correo: Al editar/crear una tienda
+- [ ] Código postal: Al editar/crear una tienda
+- [ ] Descripción: Tamaño máximo editar/crear tienda
+- [ ] Descripción: Tamaño máximo editar/crear artículo
+- [ ] lugar de fabricación, material y tallas deben se obligatorios, peta si no los rellenas (editar/crear artículo)
+- [x] Poner boton de volver para atrás en los términos y condiciones
+- [x] Cambiar los botones de volver para atras de los formularios
