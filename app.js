@@ -69,7 +69,6 @@ app.use("/subcategoria", subcategoriaRouter);
 app.use("/articulo", articuloRouter);
 
 // Iniciamos el servidor
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("Server started on port " + port);
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server started on port " + (process.env.PORT || 3000));
 });
