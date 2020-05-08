@@ -84,7 +84,6 @@ router.get("/borrar/:subcategoria/:tienda/:categoria", async function (req, res)
   const tienda = await Tienda.findById(req.params.tienda);
   const categoria = await Categoria.findById(req.params.categoria);
   const subcategoria = await Subcategoria.findById(req.params.subcategoria);
-
   Articulo.deleteMany({subcategoria:subcategoria}, function (err, articulos) {
     if (err) throw err;
   });

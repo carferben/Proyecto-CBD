@@ -76,7 +76,6 @@ router.post("/editar/:id", function (req, res) {
 router.get("/borrar/:categoria/:tienda", async function (req, res) {
   const tienda = await Tienda.findById(req.params.tienda);
   const categoria = await Categoria.findById(req.params.categoria);
-
   Articulo.deleteMany({categoria:req.params.categoria}, function (err, articulos) {
     if (err) throw err;
   });

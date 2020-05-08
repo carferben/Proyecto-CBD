@@ -133,48 +133,20 @@ router.post("/editar", function (req, res) {
 
 router.get("/borrar/:tienda", async function (req, res) {
   const tienda = await Tienda.findById(req.params.tienda);
-  Categoria.find({tienda:tienda.id}, async function (err, categorias) {
-    if (err) throw err; 
-    Subcategoria.find({categoria:categorias}, async function (err, subcategoria) {
-      if (err) throw err; 
+  const categorias = await Categoria.find({tienda: tienda._id});
 
-      for (let i = 0; i < subcategoria.length; i++) {
-        Articulo.find({subcategoria:subcategoria[i]}, async function (err, articulos) {
-          if (err)  throw err; 
-          for (let i = 0; i < articulos.length; i++) {
-            articulos[i].remove(err => { 
-              if (err) {
-                console.log("Error al borrar artículo: " + err);
-                throw err;
-              }
-            });
-          }
-        });
-        subcategoria[i].remove(err => { 
-          if (err) {
-            console.log("Error al borrar subcategoria: " + err);
-            throw err;
-          }
-        });
-      }
-        
-      for (let i = 0; i < categorias.length; i++) {
-        categorias[i].remove(err => { 
-          if (err) {
-            console.log("Error al borrar categoria: " + err);
-            throw err;
-          }
-        });
-      }
-      tienda.remove(err => { 
-        if (err) {
-          console.log("Error al borrar tienda: " + err);
-          throw err;
-        } else {
-          return res.redirect("/tienda/mostrar/" + tienda._id);
-        }
-      });
-    });
+  Articulo.deleteMany({categoria:categorias._id}, function (err, articulos) {
+    if (err) throw err;
+  });
+  Subcategoria.deleteMany({categoria:categorias._id}, function (err, subcategorias) {
+    if (err) throw err;
+  });
+  Categoria.deleteMany({tienda:tienda.id}, function (err, subcategorias) {
+    if (err) throw err;
+  });
+  tienda.remove(err => { 
+    if (err) throw err;
+    return res.redirect("/tienda/mostrar/" + tienda._id);
   });
 });
 
