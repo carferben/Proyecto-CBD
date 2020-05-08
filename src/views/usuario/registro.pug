@@ -19,7 +19,7 @@ block content
             div.input-group-prepend
               div.input-group-text 
                 i.fa.fa-user-circle.fa-fw
-            input#nombre_de_usuario.form-control(type='text' placeholder='Nombre de usuario' name='nombre_de_usuario' required='true')
+            input#nombre_de_usuario.form-control(type='text' placeholder='Nombre de usuario' name='nombre_de_usuario' required='true' maxlength=20)
 
         span#password_error.text-danger
         div.form-group
@@ -48,14 +48,14 @@ block content
             div.input-group-prepend
               div.input-group-text
                 i.fas.fa-user-alt.fa-fw
-            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true')
+            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true' maxlength=40)
 
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend
               div.input-group-text
                 i.fas.fa-user-alt.fa-fw
-            input#apellidos.form-control(type='text' placeholder='Apellidos' name='apellidos' required='true')
+            input#apellidos.form-control(type='text' placeholder='Apellidos' name='apellidos' required='true' maxlength=40)
 
         span#dni_error.text-danger
         div.form-group
@@ -75,5 +75,5 @@ block content
                 | Confirmo que he leido y acepto los <a href="/terminos-y-condiciones" target="_blank">términos y condiciones de uso</a>.
         
         div.text-center.mt-3
-          a.btn.cancel.mr-3(href='javascript: history.go(-1)') Cancelar
+          a.btn.cancel.mr-3(href='/usuario/entrar') Cancelar
           button.btn(type='submit') Enviar

@@ -10,11 +10,11 @@ block content
         div.col-sm-12.col-md-6.col-lg-6.w-100
           div.form-group
             label(for='nombre') Nombre
-            input#nombre.form-control(type='text' placeholder='Acme Jardines' name='nombre' required='true')
+            input#nombre.form-control(type='text' placeholder='Acme Jardines' name='nombre' required='true' maxlength=40)
 
           div.form-group
             label(for='descripcion') Descripción
-            textarea#descripcion.form-control(rows="4" placeholder='Especializados en decoración para patios y jardines.' name='descripcion' required='true')
+            textarea#descripcion.form-control(rows="4" placeholder='Especializados en decoración para patios y jardines.' name='descripcion' required='true' maxlength=250)
 
           div.form-group
             label(for="email") Email
@@ -27,11 +27,11 @@ block content
 
           div.form-group
             label(for="ciudad") Ciudad
-            input#ciudad.form-control(type='text' placeholder='Carmona, Sevilla' name='ciudad' required='true')
+            input#ciudad.form-control(type='text' placeholder='Carmona, Sevilla' name='ciudad' required='true' maxlength=40)
 
           div.form-group
             label(for="calle") Calle
-            input#calle.form-control(type='text' placeholder='Calle Hilanderos 13' name='calle' required='true')   
+            input#calle.form-control(type='text' placeholder='Calle Hilanderos 13' name='calle' required='true' maxlength=40)   
 
           div.form-group
             label(for="codigo_postal") Código postal

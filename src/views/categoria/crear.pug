@@ -10,7 +10,7 @@ block content
           h4.text-center.mb-4 Crear nueva categoría
           div.form-group
             label(for='nombre') Nombre
-            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true')
+            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true' maxlength=20)
 
           div.form-group
             div
@@ -20,5 +20,5 @@ block content
                   option(value=variable) #{variable}
 
           div.text-right.mt-3
-            a.btn.cancel.mr-3(href='javascript: history.go(-1)') Cancelar
+            a.btn.cancel.mr-3(href="/tienda/mostrar/" + tienda._id) Cancelar
             button.btn(type='submit') Guardar

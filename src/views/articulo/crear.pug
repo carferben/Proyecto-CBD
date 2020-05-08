@@ -9,11 +9,11 @@ block content
           h4.text-center.mb-4 Crear nuevo artículo
           div.form-group
             label(for='nombre') Nombre
-            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true')
+            input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true' maxlength=40)
 
           div.form-group
             label(for='descripcion') Descripción
-            textarea#descripcion.form-control(rows="4" placeholder='Descripción' name='descripcion' required='true')
+            textarea#descripcion.form-control(rows="4" placeholder='Descripción' name='descripcion' required='true' maxlength=250)
 
           div.form-group
             label(for='imagen') Foto
@@ -25,15 +25,15 @@ block content
 
           div.form-group
             label(for='lugar_de_fabricacion') Lugar de fabricación
-            input#lugar_de_fabricacion.form-control(type='text' placeholder='España' name='lugar_de_fabricacion')
+            input#lugar_de_fabricacion.form-control(type='text' placeholder='España' name='lugar_de_fabricacion' required='true' maxlength=40)
 
           div.form-group
             label(for='material') Material
-            input#material.form-control(type='text' placeholder='Material' name='material')
+            input#material.form-control(type='text' placeholder='Material' name='material' required='true' maxlength=40)
 
           div.form-group
             label(for='tallas') Tallas
-            input#tallas.form-control(type='text' placeholder='XS, S, L' name='tallas')
+            input#tallas.form-control(type='text' placeholder='XS, S, L' name='tallas' required='true' maxlength=250)
 
           div.form-group
             div
@@ -43,5 +43,5 @@ block content
                   option(value=subcategoria) #{subcategoria.nombre}
 
           div.text-right.mt-3
-            a.btn.cancel.mr-3(href='javascript: history.go(-1)') Cancelar
+            a.btn.cancel.mr-3(href="/articulo/listar/" + tienda._id + "/" + categoria._id) Cancelar
             button.btn(type='submit') Guardar

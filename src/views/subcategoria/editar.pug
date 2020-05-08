@@ -11,8 +11,8 @@ block content
         div.col-sm-12.col-md-12.col-lg-12.w-100
           div.form-group
             label(for='nombre') Nombre
-            input#nombre.form-control(type='text' placeholder='Nombre' value=subcategoria.nombre name='nombre' required='true')
+            input#nombre.form-control(type='text' placeholder='Nombre' value=subcategoria.nombre name='nombre' required='true' maxlength=20)
 
           div.text-right
-            a.btn.cancel(href='javascript: history.go(-1)') Cancelar
+            a.btn.cancel.mr-1(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "/" + subcategoria.id) Cancelar
             button.btn(type='submit') Guardar

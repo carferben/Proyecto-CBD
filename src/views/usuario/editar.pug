@@ -17,11 +17,11 @@ block content
 
         div.form-group
           label(for='nombre') Nombre
-          input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' value=usuario.nombre required='true')
+          input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' value=usuario.nombre required='true' maxlength=40)
 
         div.form-group
           label(for='apellidos') Apellidos
-          input#apellidos.form-control(type='text' placeholder='Apellidos' name='apellidos' value=usuario.apellidos required='true')
+          input#apellidos.form-control(type='text' placeholder='Apellidos' name='apellidos' value=usuario.apellidos required='true' maxlength=40)
 
         div.form-group
           label(for='dni') DNI
