@@ -2,11 +2,14 @@ extends ../layout
 
 block content
   div.container.p-0
-    p #{message}
     form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post" action="/tienda/crear")
       h4.text-center.mb-4 Crea tu tienda
-      div.row
 
+      - if (message == "nombre_exists") message = "El nombre ya existe"
+      - if (message == "email_exists") message = "El email ya existe"
+      if (message != "")
+        p#error_message.alert.alert-danger #{message}
+      div.row
         div.col-sm-12.col-md-6.col-lg-6.w-100
           div.form-group
             label(for='nombre') Nombre

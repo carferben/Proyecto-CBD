@@ -2,9 +2,12 @@ extends ../layout
 
 block content
   div.container.p-0
-    p #{message}
     form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
       h4.text-center.mb-4 #{tienda.nombre}
+      - if (message == "nombre_exists") message = "El nombre ya existe"
+      - if (message == "email_exists") message = "El email ya existe"
+      if (message != "")
+        p#error_message.alert.alert-danger #{message}
       div.row
 
         div.col-sm-12.col-md-6.col-lg-6.w-100
@@ -14,7 +17,7 @@ block content
 
           div.form-group
             label(for='descripcion') Descripción
-            textarea#descripcion.form-control(rows="4" placeholder='Especializados en decoración para patios y jardines.' name='descripcion' required='true' maxlength=250) 
+            textarea#descripcion.form-control(rows="4" placeholder='Especializados en decoración para patios y jardines.' name='descripcion' required='true' maxlength=250)
               | #{tienda.descripcion}
 
           div.form-group
