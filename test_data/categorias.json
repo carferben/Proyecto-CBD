@@ -38,5 +38,255 @@
     "tienda": {
       "$oid": "5eb6cc9370d1bfb4a2e9cdf1"
     }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d5709127f894d359f8d8"
+    },
+    "nombre": "Camisetas",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    },
+    "nombre": "Pantalones",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d378"
+    },
+    "nombre": "Vestidos",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d377"
+    },
+    "nombre": "Camisas y blusas",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2ad9a0e34f4d376"
+    },
+    "nombre": "Calzado",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d375"
+    },
+    "nombre": "Jerséis",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d374"
+    },
+    "nombre": "Faldas",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d373"
+    },
+    "nombre": "Monos",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d372"
+    },
+    "nombre": "Moda baño",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d371"
+    },
+    "nombre": "Calcetines",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2ff9a0e34f4d379"
+    },
+    "nombre": "Pijamas",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  }, 
+  {
+    "_id": {
+      "$oid": "5eb6d5709127f893d359f8d8"
+    },
+    "nombre": "Camisetas",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a3e34f4d379"
+    },
+    "nombre": "Pantalones",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d378"
+    },
+    "nombre": "Vestidos",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d377"
+    },
+    "nombre": "Camisas y blusas",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0c34f4d376"
+    },
+    "nombre": "Calzado",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d375"
+    },
+    "nombre": "Jerséis",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d374"
+    },
+    "nombre": "Faldas",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d373"
+    },
+    "nombre": "Monos",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d372"
+    },
+    "nombre": "Moda baño",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d371"
+    },
+    "nombre": "Calcetines",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d3c2a2af9a0e34f4d379"
+    },
+    "nombre": "Pijamas",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ec6d3c2a2af9a0e34f4d379"
+    },
+    "nombre": "Decoración",
+    "tipo": "OTRO",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ec6d3f2a2af9a0e34f4d379"
+    },
+    "nombre": "Juguetes",
+    "tipo": "OTRO",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ed6d3f2a2af9a0e34f4d379"
+    },
+    "nombre": "Ropa de cama",
+    "tipo": "OTRO",
+    "tienda": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    }
   }
 ]
