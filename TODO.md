@@ -25,7 +25,7 @@
 ---
 - [ ] Login
 - [ ] DNI: Al editar un usuario
-- [ ] Correo: Editar un usuario y editar/crear una tienda
+- [x] Correo: Editar un usuario y editar/crear una tienda
 - [ ] Código postal: Al editar/crear una tienda
 - [ ] No me deja crear una tienda con un nombre que ya exista (ss)
 - [x] Cambiar los botones de volver para atras de los formularios
