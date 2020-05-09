@@ -1,0 +1,32 @@
+[
+  {
+    "_id": {
+      "$oid": "5eb6cc9370d1bfb4a2e9cdf1"
+    },
+    "nombre": "Acme Jardines",
+    "descripcion": "Especializados en decoración para patios y jardines.",
+    "email": "acmejardines@gmail.com",
+    "imagen": "https://losjardinesdekyoto.com/wp-content/uploads/2016/05/los-jardines-de-kyoto-tienda.jpg",
+    "ciudad": "Lora del Río, Sevilla",
+    "calle": "Calle Roda Arriba, 100",
+    "codigo_postal": "41440",
+    "usuario": {
+      "$oid": "5eb6cc874938172824babfdd"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7ca7a47d1e765674c58b34"
+    },
+    "nombre": "Acme Ropa",
+    "descripcion": "Vístete a la última con nuestras mejores prendas. Siempre a la moda y poniendo la atención en el cliente.",
+    "email": "acmeropa@gmail.com",
+    "imagen": "https://cdn.pixabay.com/photo/2016/11/22/19/08/blur-1850082_960_720.jpg",
+    "ciudad": "Carmona, Sevilla",
+    "calle": "Calle Hilanderos 13",
+    "codigo_postal": "41410",
+    "usuario": {
+      "$oid": "5eb587f502e0f656b880b327"
+    }
+  }
+]
