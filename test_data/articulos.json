@@ -142,5 +142,131 @@
     "categoria": {
       "$oid": "5eb6d7a388c8e951ec283e9f"
     }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6ed5e1cd26253cf94c826"
+    },
+    "nombre": "Zapatos negros",
+    "descripcion": "Zapatos para vestir negros comunes.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/09/02/12/35/shoes-918543_960_720.jpg",
+    "precio": "49.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Cuero",
+    "tallas": "37, 38, 40, 41, 42, 43, 44, 45, 46",
+    "subcategoria": {
+      "$oid": "5eb6d9bd262bc967b066d3da"
+    },
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6eecb13a73eb9f7972fca"
+    },
+    "nombre": "Zapatos marrones con patrón de cuadros",
+    "descripcion": "Zapatos para vestir marrones muy elegantes.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/01/16/15/01/fashion-601565_960_720.jpg",
+    "precio": "59.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Cuero",
+    "tallas": "37, 38, 40, 41, 42, 43, 44, 45, 46",
+    "subcategoria": {
+      "$oid": "5eb6d9bd262bc967b066d3da"
+    },
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6eff1d85edf884fd5c957"
+    },
+    "nombre": "Zapatos marrones",
+    "descripcion": "Zapatos para vestir marrones lisos.",
+    "imagen": "https://cdn.pixabay.com/photo/2016/01/19/18/06/brown-shoes-1150071_960_720.jpg",
+    "precio": "59.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Cuero",
+    "tallas": "37, 38, 40, 41, 43, 44, 45",
+    "subcategoria": {
+      "$oid": "5eb6d9bd262bc967b066d3da"
+    },
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f13916f927deecc4599f"
+    },
+    "nombre": "Botas naranjas",
+    "descripcion": "Botas naranjas llamativas.",
+    "imagen": "https://cdn.pixabay.com/photo/2018/01/10/23/00/hiking-shoes-3074971_960_720.png",
+    "precio": "29.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Fibra sintética",
+    "tallas": "37, 38, 40, 41, 43, 44, 45",
+    "subcategoria": {
+      "$oid": "5eb6d9fc9eb6f06f8ff8188c"
+    },
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f1839e2a152777555e50"
+    },
+    "nombre": "Botines negros y blancos",
+    "descripcion": "Botines negros y blancos con suela de goma.",
+    "imagen": "https://cdn.pixabay.com/photo/2018/04/09/23/11/footwear-3305876_960_720.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Francia",
+    "material": "Tela y goma",
+    "tallas": "37, 38, 40, 41, 43, 44, 45, 46",
+    "subcategoria": {
+      "$oid": "5eb6d9fc9eb6f06f8ff8188c"
+    },
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f1d2ee95aaf985d731b3"
+    },
+    "nombre": "Botas negras",
+    "descripcion": "Botas negras anchas y cómodas.",
+    "imagen": "https://cdn.pixabay.com/photo/2013/04/10/07/35/shoes-102408_960_720.jpg",
+    "precio": "69.99",
+    "lugar_de_fabricacion": "Francia",
+    "material": "Piel",
+    "tallas": "40, 41, 43, 44, 45, 46, 47",
+    "subcategoria": {
+      "$oid": "5eb6d9fc9eb6f06f8ff8188c"
+    },
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f25b2129c9f686109ce6"
+    },
+    "nombre": "Botas marrones",
+    "descripcion": "Botas marrones discretas.",
+    "imagen": "https://cdn.pixabay.com/photo/2018/08/04/00/18/hiking-shoes-3583017_960_720.jpg",
+    "precio": "29.99",
+    "lugar_de_fabricacion": "Francia",
+    "material": "Fibra sintética",
+    "tallas": "40, 41, 43, 44, 45, 46, 47",
+    "subcategoria": {
+      "$oid": "5eb6d9fc9eb6f06f8ff8188c"
+    },
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
   }
 ]
