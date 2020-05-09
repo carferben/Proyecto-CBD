@@ -35,7 +35,7 @@ block content
 
           div.form-group
             label(for="codigo_postal") Código postal
-            input#codigo_postal.form-control(type='text' placeholder='41410' name='codigo_postal' required='true')
+            input#codigo_postal.form-control(type='text' pattern="[0-9]{5}" placeholder='41410' name='codigo_postal' required='true')
 
           div.text-right.mt-3
             a.btn.cancel.mr-3(href='/') Cancelar
