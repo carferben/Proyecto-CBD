@@ -1,0 +1,26 @@
+[
+  {
+    "_id": {
+      "$oid": "5eb6cc874938172824babfdd"
+    },
+    "nombre_de_usuario": "antonio",
+    "password": "$2b$10$..R9PNa.vQBZLA6vSgxBUuosRRp3AolHmpsFqAnejv3bHzfTGFOzS",
+    "email": "antsanhip@alum.us.es",
+    "nombre": "Antonio",
+    "apellidos": "Sánchez Hipona",
+    "dni": "73931196L",
+    "rol": "TIENDA"
+  },
+  {
+    "_id": {
+      "$oid": "5eb587f502e0f656b880b327"
+    },
+    "nombre_de_usuario": "carmen",
+    "password": "$2b$10$POfAJfnE.eWqYOOTkkVs2u2MIzitxJJdtlW5frOQbQETooE1nZX8u",
+    "email": "carferben@alum.us.es",
+    "nombre": "Carmen",
+    "apellidos": "Fernández Benjumea",
+    "dni": "99229414P",
+    "rol": "TIENDA"
+  }
+]
