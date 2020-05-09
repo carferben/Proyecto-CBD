@@ -7,6 +7,8 @@ block content
       form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
         h4.text-center.mb-4 Iniciar sesión
 
+        if (message != "")
+          p#error_message.alert.alert-danger #{message}
         div.form-group
           div.input-group.mb-2
             div.input-group-prepend

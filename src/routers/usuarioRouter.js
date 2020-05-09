@@ -33,7 +33,7 @@ module.exports = function(passport) {
     "/entrar",
     passport.authenticate("entrar", {
       successRedirect: "/",
-      failureRedirect: "/",
+      failureRedirect: "/usuario/entrar",
       failureFlash: true
     })
   );
