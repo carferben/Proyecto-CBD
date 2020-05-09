@@ -43,7 +43,7 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
   const subcategorias = await Subcategoria.find({
     categoria: categoria,
   });
-  search = search == "" ? "" : "?search=" + search;
+  search = search == "" ? "" : "&search=" + search;
   var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
   var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
   var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
