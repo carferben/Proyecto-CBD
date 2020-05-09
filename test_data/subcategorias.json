@@ -1,0 +1,92 @@
+[
+  {
+    "_id": {
+      "$oid": "5eb6d8fbba913067d7b48269"
+    },
+    "nombre": "Tacones",
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d964a23b5bf369521acc"
+    },
+    "nombre": "Sandalias",
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d9bd262bc967b066d3da"
+    },
+    "nombre": "Zapatos de vestir",
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d9fc9eb6f06f8ff8188c"
+    },
+    "nombre": "Botines",
+    "categoria": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6da93c6c7478f6619d479"
+    },
+    "nombre": "Zapatos",
+    "categoria": {
+      "$oid": "5eb6d84bcd541d3d4e881da5"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6da9b7511a8dee9843b88"
+    },
+    "nombre": "Sandalias",
+    "categoria": {
+      "$oid": "5eb6d84bcd541d3d4e881da5"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6da9f560280b9451a16cb"
+    },
+    "nombre": "Botines",
+    "categoria": {
+      "$oid": "5eb6d84bcd541d3d4e881da5"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6dacb97414c5da6618a00"
+    },
+    "nombre": "Zapatillas de casa",
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6dacfcec974ddf2b2324a"
+    },
+    "nombre": "Playa",
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6dad44c371fbf8cba9fa5"
+    },
+    "nombre": "Montaña",
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "_id": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    },
+    "nombre": "Calzado",
+    "tipo": "MUJER",
+    "tienda": {
+      "$oid": "5eb6cc9370d1bfb4a2e9cdf1"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7bc619f30b19d068765"
+    },
+    "nombre": "Calzado",
+    "tipo": "HOMBRE",
+    "tienda": {
+      "$oid": "5eb6cc9370d1bfb4a2e9cdf1"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d84bcd541d3d4e881da5"
+    },
+    "nombre": "Calzado",
+    "tipo": "NIÑOS",
+    "tienda": {
+      "$oid": "5eb6cc9370d1bfb4a2e9cdf1"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    },
+    "nombre": "Calzado",
+    "tipo": "OTRO",
+    "tienda": {
+      "$oid": "5eb6cc9370d1bfb4a2e9cdf1"
+    }
+  }
+]

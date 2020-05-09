@@ -128,18 +128,18 @@ block content
           unless isLastPage && currentPage == 0
             if previousPage >= 0
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + previousPage aria-label='Previous')
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + previousPage + search aria-label='Previous')
                   span(aria-hidden='true') &laquo;
                   span.sr-only Anterior
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + previousPage) #{previousPage}
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + previousPage + search) #{previousPage}
             li.page-item
-              a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + currentPage) #{page}
+              a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + currentPage + search) #{page}
             unless isLastPage
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + nextPage) #{nextPage}
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + nextPage + search) #{nextPage}
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + nextPage aria-label='Next')
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + nextPage + search aria-label='Next')
                   span(aria-hidden='true') &raquo;
                   span.sr-only Siguiente
 

@@ -1,0 +1,146 @@
+[
+  {
+    "_id": {
+      "$oid": "5eb6e6ac5d79c1d769cd1551"
+    },
+    "nombre": "Tacones rojos con patrón",
+    "descripcion": "Unos bonitos tacones rojos con un patrón exótico.",
+    "imagen": "https://cdn.pixabay.com/photo/2016/03/27/22/16/fashion-1284496_960_720.jpg",
+    "precio": "40",
+    "lugar_de_fabricacion": "Francia",
+    "material": "Tela y plástico",
+    "tallas": "34, 35, 36, 38, 39, 40",
+    "subcategoria": {
+      "$oid": "5eb6d8fbba913067d7b48269"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6e555aa693a084fe789a0"
+    },
+    "nombre": "Tacones rojos",
+    "descripcion": "Unos bonitos tacones rojos.",
+    "imagen": "https://cdn.pixabay.com/photo/2013/09/01/18/12/womens-shoes-178162_960_720.jpg",
+    "precio": "29.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Tela y plástico",
+    "tallas": "36, 38, 39, 40",
+    "subcategoria": {
+      "$oid": "5eb6d8fbba913067d7b48269"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6e4970337cd99595db7bf"
+    },
+    "nombre": "Tacones rosas con lazo",
+    "descripcion": "Tacones rosas con un lazo.",
+    "imagen": "https://cdn.pixabay.com/photo/2017/03/01/05/43/pink-shoes-2107618_960_720.jpg",
+    "precio": "19.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Tela y plástico",
+    "tallas": "34, 35, 36, 38",
+    "subcategoria": {
+      "$oid": "5eb6d8fbba913067d7b48269"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6e534367e8e60fe6337f3"
+    },
+    "nombre": "Tacones azules",
+    "descripcion": "Tacones azules con suela extravagante.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/01/06/16/24/shoe-590516_960_720.jpg",
+    "precio": "50",
+    "lugar_de_fabricacion": "China",
+    "material": "Plástico",
+    "tallas": "34, 35, 36, 37, 38, 40",
+    "subcategoria": {
+      "$oid": "5eb6d8fbba913067d7b48269"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6e86e68c3d767dc19ab62"
+    },
+    "nombre": "Sandalias con tacón",
+    "descripcion": "Sandalias con tacón alto.",
+    "imagen": "https://cdn.pixabay.com/photo/2019/02/23/22/16/shoe-4016645_960_720.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Madera y tela",
+    "tallas": "34, 37, 38, 40",
+    "subcategoria": {
+      "$oid": "5eb6d964a23b5bf369521acc"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6e8db87c1207616315b9e"
+    },
+    "nombre": "Sandalias rosas",
+    "descripcion": "Sandalias de suela plana rosas.",
+    "imagen": "https://cdn.pixabay.com/photo/2016/07/16/12/41/sandal-1521473_960_720.jpg",
+    "precio": "29.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Plástico y tela",
+    "tallas": "34, 36, 37, 38, 40",
+    "subcategoria": {
+      "$oid": "5eb6d964a23b5bf369521acc"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6e95178f26eb394ea850a"
+    },
+    "nombre": "Sandalias azules",
+    "descripcion": "Sandalias azules elegantes con un poco de tacón.",
+    "imagen": "https://cdn.pixabay.com/photo/2018/04/15/22/38/clothing-3323089_960_720.jpg",
+    "precio": "19.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Plástico y tela",
+    "tallas": "34, 36, 37, 38, 40",
+    "subcategoria": {
+      "$oid": "5eb6d964a23b5bf369521acc"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6e9b7d6de497a8dc8aa8e"
+    },
+    "nombre": "Sandalias marrones",
+    "descripcion": "Sandalias marrones con tacón.",
+    "imagen": "https://cdn.pixabay.com/photo/2017/01/24/23/56/brown-2006740_960_720.jpg",
+    "precio": "19.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Plástico y cuero",
+    "tallas": "34, 36, 37, 38, 40",
+    "subcategoria": {
+      "$oid": "5eb6d964a23b5bf369521acc"
+    },
+    "categoria": {
+      "$oid": "5eb6d7a388c8e951ec283e9f"
+    }
+  }
+]
