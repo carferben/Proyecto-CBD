@@ -3,7 +3,7 @@
     "_id": {
       "$oid": "5eb6cc9370d1bfb4a2e9cdf1"
     },
-    "nombre": "Acme Jardines",
+    "nombre": "Acme Zapatos",
     "descripcion": "Especializados en decoración para patios y jardines.",
     "email": "acmejardines@gmail.com",
     "imagen": "https://losjardinesdekyoto.com/wp-content/uploads/2016/05/los-jardines-de-kyoto-tienda.jpg",

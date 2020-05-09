@@ -26,8 +26,8 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
       subcategoria: req.params.subcategoria,
     })
       .or([{ nombre: { $regex: re } }, { descripcion: { $regex: re } }])
-      .skip(8 * page)
-      .limit(8);
+      .skip(6 * page)
+      .limit(6);
   } else {
     count = await Articulo.countDocuments({
       categoria: categoria._id,
@@ -36,14 +36,14 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
       categoria: categoria._id,
     })
       .or([{ nombre: { $regex: re } }, { descripcion: { $regex: re } }])
-      .skip(8 * page)
-      .limit(8);
+      .skip(6 * page)
+      .limit(6);
   }
   const categorias = await Categoria.find({ tienda: tienda._id });
   const subcategorias = await Subcategoria.find({
     categoria: categoria,
   });
-
+  search = search == "" ? "" : "?search=" + search;
   var categorias_mujer = categorias.filter((c) => c.tipo == "MUJER");
   var categorias_hombre = categorias.filter((c) => c.tipo == "HOMBRE");
   var categorias_ninos = categorias.filter((c) => c.tipo == "NIÑOS");
@@ -61,6 +61,7 @@ router.get("/listar/:tienda/:categoria/:subcategoria?", async (req, res) => {
     categorias_hombre: categorias_hombre,
     categorias_ninos: categorias_ninos,
     categorias_otro: categorias_otro,
+    search: search
   });
 });
 

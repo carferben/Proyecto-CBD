@@ -72,7 +72,7 @@ block content
                     a.btn.mr-1.mt-2(href='/articulo/crear/' + categoria.id role="button") Crear nuevo artículo
                   a.btn.mr-1.mt-2(href='/categoria/editar/' + categoria.id role="button") Editar categoría
                   a.btn.delete.mr-1.mt-2(role="button" data-toggle='modal' data-target='#exampleModal') Borrar categoría
-    
+
                 div#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenter' )
                   div.modal-dialog(role='document')
                     div.modal-content
@@ -87,7 +87,7 @@ block content
                         a.cancel.btn(type='button' data-dismiss='modal') Cancelar
                         a.btn.delete(href='/categoria/borrar/' + categoria.id + '/' + tienda.id role="button") Borrar
 
-      
+
 
         div.card-deck.mt-3
           if articulos.length == 0
@@ -123,22 +123,23 @@ block content
           - var currentPage = parseInt(page)
           - var previousPage = currentPage - 1
           - var nextPage = currentPage + 1
-          - var isLastPage = nextPage * 8 >= totalItems
+          - var isLastPage = nextPage * 6 >= totalItems
+          - var subcat = subcategoria != null ? "/"+subcategoria._id : ""
           unless isLastPage && currentPage == 0
             if previousPage >= 0
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + previousPage aria-label='Previous')
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + previousPage aria-label='Previous')
                   span(aria-hidden='true') &laquo;
                   span.sr-only Anterior
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + previousPage) #{previousPage}
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + previousPage) #{previousPage}
             li.page-item
-              a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + currentPage) #{page}
+              a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + currentPage) #{page}
             unless isLastPage
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + nextPage) #{nextPage}
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + nextPage) #{nextPage}
               li.page-item
-                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + "?page=" + nextPage aria-label='Next')
+                a.page-link(href="/articulo/listar/" + tienda._id + "/" + categoria._id + subcat + "?page=" + nextPage aria-label='Next')
                   span(aria-hidden='true') &raquo;
                   span.sr-only Siguiente
 
