@@ -43,5 +43,5 @@ block content
                   option(value=subcategoria) #{subcategoria.nombre}
 
           div.text-right.mt-3
-            a.btn.cancel.mr-3(href="/articulo/listar/" + tienda._id + "/" + categoria._id) Cancelar
+            a.btn.cancel.mr-3(href='javascript: history.go(-1)') Cancelar
             button.btn(type='submit') Guardar

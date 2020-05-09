@@ -1,0 +1,266 @@
+[
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af950e34f4d373"
+    },
+    "nombre": "Básicos",
+    "descripcion": "Vaqueros básicos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2016/01/19/14/45/person-1148941_1280.jpg",
+    "precio": "24.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Tejido vaquero",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7f2a2af9a0e34f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },{
+    "_id": {
+      "$oid": "5eb6d7c2a2af95fe34f4d373"
+    },
+    "nombre": "Vaqueros elásticos",
+    "descripcion": "Vaqueros básicos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/09/05/21/57/girl-925635_1280.jpg",
+    "precio": "14.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Tejido vaquero",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7f2a2af9a0e34f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },{
+    "_id": {
+      "$oid": "5eb6d7f2a2af9a0e34f4d373"
+    },
+    "nombre": "Vaqueros orcuros",
+    "descripcion": "Vaqueros básicos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__480.jpg",
+    "precio": "19.99",
+    "lugar_de_fabricacion": "España",
+    "material": "Tejido vaquero",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7f2a2af9a0e34f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },{
+    "_id": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    },
+    "nombre": "Vaqueros rotos",
+    "descripcion": "Vaqueros básicos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/03/26/10/38/girl-691712__480.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Japón",
+    "material": "Tejido vaquero",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7f2a2af9a0e34f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7c2a2af7a0e34f4d379"
+    },
+    "nombre": "Vaqueros tejanos",
+    "descripcion": "Vaqueros básicos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2017/08/08/00/23/woman-2609573_1280.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Japón",
+    "material": "Tejido vaquero",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7f2a2af9a0e34f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7f2a7af9a0e34f4d373"
+    },
+    "nombre": "Pantalones verdes",
+    "descripcion": "Pantalones bonitos y cómodos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2017/08/07/18/59/girl-2606776__480.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Japón",
+    "material": "Tela",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a2af9a0ed4f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7f2a7af8a0e34f4d373"
+    },
+    "nombre": "Pantalones blancos",
+    "descripcion": "Pantalones bonitos y cómodos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2017/08/06/12/05/people-2591868__480.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Japón",
+    "material": "Tela",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a2af9a0ed4f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7f2a9af8a0e34f4d373"
+    },
+    "nombre": "Pantalones básicos",
+    "descripcion": "Pantalones bonitos y cómodos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2018/03/14/18/03/candid-3225895__480.png",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Japón",
+    "material": "Tela",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a2af9a0ed4f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },{
+    "_id": {
+      "$oid": "5eb6d7f2a5af8a0e34f4d373"
+    },
+    "nombre": "Clásicos",
+    "descripcion": "Pantalones bonitos y cómodos para cualquier día.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/05/31/14/54/jeans-792030__480.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Japón",
+    "material": "Tela",
+    "tallas": "36-38-40-42-44-46",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a2af9a0ed4f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7f2a0af8a0e34f4d373"
+    },
+    "nombre": "Negros",
+    "descripcion": "Perfectos para hacer deporte.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/10/25/14/50/jog-1005897_1280.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Suiza",
+    "material": "Tela",
+    "tallas": "S-M-L-XL-XXL",
+    "subcategoria": {
+      "$oid": "5eb6d7c3a2af9a0e34f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7f2a0af8a0e34f4d373"
+    },
+    "nombre": "Negros",
+    "descripcion": "Perfectos para hacer deporte.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/10/25/14/50/jog-1005897_1280.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Suiza",
+    "material": "Tela",
+    "tallas": "S-M-L-XL-XXL",
+    "subcategoria": {
+      "$oid": "5eb6d7c3a2af9a0e34f4d373"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d379"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d7f2a0af8a0e64f4d373"
+    },
+    "nombre": "Casual",
+    "descripcion": "Vestido coral para uso diario",
+    "imagen": "https://cdn.pixabay.com/photo/2015/07/28/09/18/dress-864107__480.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Suiza",
+    "material": "Tela",
+    "tallas": "S-M-L-XL-XXL",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a2af9a0e38f4d37d"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d378"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6d0f2a0af8a0e67f4d373"
+    },
+    "nombre": "Ibicencas",
+    "descripcion": "Vestido para fiestas ibicencas",
+    "imagen": "https://cdn.pixabay.com/photo/2016/10/16/13/44/young-woman-1745173__480.jpg",
+    "precio": "39.99",
+    "lugar_de_fabricacion": "Suiza",
+    "material": "Tela",
+    "tallas": "S-M-L-XL-XXL",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a2af9a0e38f4d37d"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d378"
+    }
+  },{
+    "_id": {
+      "$oid": "5eb6fa5b1fc74d1b3db294c3"
+    },
+    "nombre": "Vestido rosa",
+    "descripcion": "Vestido rosa para bodas",
+    "imagen": "https://cdn.pixabay.com/photo/2018/01/11/09/39/woman-3075704__480.jpg",
+    "precio": "80.00",
+    "lugar_de_fabricacion": "Suiza",
+    "material": "Tela",
+    "tallas": "S-M-L-XL-XXL",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a2af9a0e38f4d37d"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d378"
+    }
+  },{
+    "_id": {
+      "$oid": "0eb6d0f9a0af8l0e64f4d373"
+    },
+    "nombre": "Estampado oscuro",
+    "descripcion": "Vestido estampado oscuro para diario",
+    "imagen": "https://cdn.pixabay.com/photo/2016/11/19/10/57/bicycle-1838605__480.jpg",
+    "precio": "80.00",
+    "lugar_de_fabricacion": "Suiza",
+    "material": "Tela",
+    "tallas": "S-M-L-XL-XXL",
+    "subcategoria": {
+      "$oid": "5eb6d7c2a5af9a0e34f4d37d"
+    },
+    "categoria": {
+      "$oid": "5eb6d7c2a2af9a0e34f4d378"
+    }
+  }
+]

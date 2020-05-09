@@ -11,7 +11,7 @@ block content
           div.form-group
             label(for='nombre') Nombre
             input#nombre.form-control(type='text' placeholder='Nombre' name='nombre' required='true' maxlength=20)
-
+            
           div.text-right
-            a.btn.cancel.mr-3(href="/articulo/listar/" + tienda._id + "/" + categoria._id) Cancelar
+            a.btn.cancel.mr-3(href='javascript: history.go(-1)') Cancelar
             button.btn(type='submit') Guardar
