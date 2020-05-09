@@ -1,11 +1,18 @@
 extends ../layout
 
+block scripts
+  script(src="/js/validators/edit_user.js")
+
 block content
   div.container.p-0
-    p #{message}
     div.col-sm-12.col-md-10.col-lg-8.mx-auto
-      form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post")
+      form.pl-sm-5.pr-sm-5.pt-sm-3.pb-sm-3.p-3(method="post" onsubmit="return validateForm()")
         h4.text-center.mb-4 Hola #{usuario.nombre}, estos son tus datos personales.
+
+        - if (message == "email_exists") message = "El email ya existe"
+        - if (message == "dni_exists") message = "El dni ya existe"
+        if (message != "")
+          p#error_message.alert.alert-danger #{message}
 
         div.form-group
           label(for='nombre_de_usuario') Nombre de usuario
@@ -23,6 +30,7 @@ block content
           label(for='apellidos') Apellidos
           input#apellidos.form-control(type='text' placeholder='Apellidos' name='apellidos' value=usuario.apellidos required='true' maxlength=40)
 
+        span#dni_error.text-danger
         div.form-group
           label(for='dni') DNI
           input#dni.form-control(type='text' placeholder='DNI' name='dni' value=usuario.dni required='true')   

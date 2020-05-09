@@ -6,12 +6,12 @@ const Subcategoria = require("../models/subcategoria");
 const Articulo = require("../models/articulo");
 const Usuario = require("../models/usuario");
 
-var isAuthenticated = function(req, res, next) {
+var isAuthenticated = function (req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/");
 };
 
-module.exports = function(passport) {
+module.exports = function (passport) {
   router.get("/registro", (req, res) => {
     res.render("usuario/registro", { message: req.flash("message") });
   });
@@ -21,7 +21,7 @@ module.exports = function(passport) {
     passport.authenticate("registro", {
       successRedirect: "/",
       failureRedirect: "/usuario/registro",
-      failureFlash: true
+      failureFlash: true,
     })
   );
 
@@ -34,11 +34,11 @@ module.exports = function(passport) {
     passport.authenticate("entrar", {
       successRedirect: "/",
       failureRedirect: "/usuario/entrar",
-      failureFlash: true
+      failureFlash: true,
     })
   );
 
-  router.get("/salir", function(req, res) {
+  router.get("/salir", function (req, res) {
     req.logout();
     res.redirect("/");
   });
@@ -49,23 +49,28 @@ module.exports = function(passport) {
 router.get("/editar", (req, res) => {
   usuario = req.user;
   if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
-  else res.render("usuario/editar", {usuario: usuario});
+  else res.render("usuario/editar", { usuario: usuario, message: "" });
 });
 
-router.post("/editar", function(req, res) {
+router.post("/editar", function (req, res) {
   usuario = req.user;
   if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
   else {
-
     usuario.email = req.body.email;
     usuario.nombre = req.body.nombre;
     usuario.apellidos = req.body.apellidos;
     usuario.dni = req.body.dni;
 
-    usuario.save(function(err) {
+    usuario.save(function (err) {
       if (err) {
-        console.log("Error al editar la usuario: " + err);
-        throw err;
+        var errorMessage = err.errmsg;
+        var message;
+        if (errorMessage.includes("email")) message = "email_exists";
+        if (errorMessage.includes("dni")) message = "dni_exists";
+        return res.render("usuario/editar", {
+          usuario: usuario,
+          message: message,
+        });
       } else return res.redirect("/");
     });
   }
@@ -74,23 +79,25 @@ router.post("/editar", function(req, res) {
 router.get("/borrar", async function (req, res) {
   usuario = req.user;
   if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
-  const tienda = await Tienda.find({usuario:usuario._id});
-  const categorias = await Categoria.find({tienda: tienda._id});
-  Articulo.deleteMany({categoria:categorias._id}, function (err, articulos) {
+  const tienda = await Tienda.find({ usuario: usuario._id });
+  const categorias = await Categoria.find({ tienda: tienda._id });
+  Articulo.deleteMany({ categoria: categorias._id }, function (err, articulos) {
     if (err) throw err;
   });
-  Subcategoria.deleteMany({categoria:categorias._id}, function (err, subcategorias) {
+  Subcategoria.deleteMany({ categoria: categorias._id }, function (
+    err,
+    subcategorias
+  ) {
     if (err) throw err;
   });
-  Categoria.deleteMany({tienda:tienda.id}, function (err, categoria) {
+  Categoria.deleteMany({ tienda: tienda.id }, function (err, categoria) {
     if (err) throw err;
   });
-  Tienda.deleteMany({usuario:usuario._id}, function (err, tienda) {
+  Tienda.deleteMany({ usuario: usuario._id }, function (err, tienda) {
     if (err) throw err;
   });
-  usuario.remove(err => { 
+  usuario.remove((err) => {
     if (err) throw err;
     return res.redirect("/");
   });
 });
-
