@@ -268,5 +268,95 @@
     "categoria": {
       "$oid": "5eb6d7bc619f30b19d068765"
     }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f359861b8d95d9ca288a"
+    },
+    "nombre": "Zapatillas dulce hogar",
+    "descripcion": "Unas zapatillas en las que pone 'Hogar dulce hogar' en inglés.",
+    "imagen": "https://cdn.pixabay.com/photo/2020/03/05/20/45/slippers-4905435_960_720.jpg",
+    "precio": "19.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Fibra sintética",
+    "tallas": "39, 40, 41, 43, 44, 45",
+    "subcategoria": {
+      "$oid": "5eb6dacb97414c5da6618a00"
+    },
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f481d7be880b08e16f44"
+    },
+    "nombre": "Zapatillas moradas con puntos",
+    "descripcion": "Zapatillas para andar por casa moradas con puntos blancos.",
+    "imagen": "https://cdn.pixabay.com/photo/2017/09/08/17/01/slippers-2729401_960_720.jpg",
+    "precio": "19.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Fibra sintética",
+    "tallas": "39, 40, 41, 43, 44, 45",
+    "subcategoria": {
+      "$oid": "5eb6dacb97414c5da6618a00"
+    },
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f4f3dc2dcdda3c03521b"
+    },
+    "nombre": "Chanclas negras",
+    "descripcion": "Chanclas negras de goma.",
+    "imagen": "https://cdn.pixabay.com/photo/2018/05/14/09/16/beach-3399109_960_720.jpg",
+    "precio": "14.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Goma",
+    "tallas": "37, 38, 39, 40, 42, 43, 44, 45, 46",
+    "subcategoria": {
+      "$oid": "5eb6dacfcec974ddf2b2324a"
+    },
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f618aa8afd5790acab1d"
+    },
+    "nombre": "Chanclas de colores",
+    "descripcion": "Chanclas multicolor con motivo veraniego.",
+    "imagen": "https://cdn.pixabay.com/photo/2017/06/29/00/31/sandals-2452735_960_720.jpg",
+    "precio": "14.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Goma",
+    "tallas": "37, 38, 40, 42, 43, 44, 45, 46",
+    "subcategoria": {
+      "$oid": "5eb6dacfcec974ddf2b2324a"
+    },
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5eb6f678521529bcebbf64c2"
+    },
+    "nombre": "Chanclas azules",
+    "descripcion": "Chanclas azules perfectas para pasear por la playa.",
+    "imagen": "https://cdn.pixabay.com/photo/2015/09/09/19/14/flip-flops-932699_960_720.jpg",
+    "precio": "9.99",
+    "lugar_de_fabricacion": "China",
+    "material": "Goma",
+    "tallas": "37, 38, 40, 42, 43, 44, 45, 46",
+    "subcategoria": {
+      "$oid": "5eb6dacfcec974ddf2b2324a"
+    },
+    "categoria": {
+      "$oid": "5eb6d8579659ae0cec67bf24"
+    }
   }
 ]
