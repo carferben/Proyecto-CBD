@@ -188,13 +188,13 @@ router.post("/editar/:articulo/:categoria", function (req, res) {
         articulo.precio = req.body.precio;
         articulo.lugar_de_fabricacion = req.body.lugar_de_fabricacion;
         articulo.tallas = req.body.tallas;
-        Subcategoria.find({nombre:req.body.subcategoria}, async function (err, subcategoria) {
+        console.log("ddddd" + articulo.subcategoria);
+        Subcategoria.findById(articulo.subcategoria, async function (err, subcategoria) {
           if (err) {
             throw err;
           } else {
-            console.log(subcategoria);
-            articulo.subcategoria = subcategoria[0]._id;
-            articulo.categoria = subcategoria[0].categoria._id;
+            articulo.subcategoria = subcategoria;
+            articulo.categoria = subcategoria.categoria._id;
             var tienda = await Tienda.findOne({ usuario: req.user.id });
 
             articulo.save(function (err) {
