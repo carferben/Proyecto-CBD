@@ -79,25 +79,32 @@ router.post("/editar", function (req, res) {
 router.get("/borrar", async function (req, res) {
   usuario = req.user;
   if (!usuario || usuario.rol != "TIENDA") return res.redirect("/");
-  const tienda = await Tienda.find({ usuario: usuario._id });
-  const categorias = await Categoria.find({ tienda: tienda._id });
-  Articulo.deleteMany({ categoria: categorias._id }, function (err, articulos) {
-    if (err) throw err;
-  });
-  Subcategoria.deleteMany({ categoria: categorias._id }, function (
-    err,
-    subcategorias
-  ) {
-    if (err) throw err;
-  });
-  Categoria.deleteMany({ tienda: tienda.id }, function (err, categoria) {
-    if (err) throw err;
-  });
-  Tienda.deleteMany({ usuario: usuario._id }, function (err, tienda) {
-    if (err) throw err;
-  });
-  usuario.remove((err) => {
-    if (err) throw err;
-    return res.redirect("/");
-  });
+  const tienda = await Tienda.findOne({ usuario: usuario._id });
+  if (!tienda) {
+    usuario.remove((err) => {
+      if (err) throw err;
+      return res.redirect("/");
+    });
+  } else {
+    const categorias = await Categoria.find({ tienda: tienda._id });
+    Articulo.deleteMany({ categoria: categorias._id }, function (err, articulos) {
+      if (err) throw err;
+    });
+    Subcategoria.deleteMany({ categoria: categorias._id }, function (
+      err,
+      subcategorias
+    ) {
+      if (err) throw err;
+    });
+    Categoria.deleteMany({ tienda: tienda.id }, function (err, categoria) {
+      if (err) throw err;
+    });
+    tienda.remove((err) => {
+      if (err) throw err;
+    });
+    usuario.remove((err) => {
+      if (err) throw err;
+      return res.redirect("/");
+    });
+  }
 });

@@ -178,26 +178,29 @@ router.post("/editar", function (req, res) {
   }
 });
 
-router.get("/borrar/:tienda", async function (req, res) {
-  const tienda = await Tienda.findById(req.params.tienda);
-  const categorias = await Categoria.find({ tienda: tienda._id });
-
-  Articulo.deleteMany({ categoria: categorias._id }, function (err, articulos) {
-    if (err) throw err;
-  });
-  Subcategoria.deleteMany({ categoria: categorias._id }, function (
-    err,
-    subcategorias
-  ) {
-    if (err) throw err;
-  });
-  Categoria.deleteMany({ tienda: tienda.id }, function (err, subcategorias) {
-    if (err) throw err;
-  });
-  tienda.remove((err) => {
-    if (err) throw err;
-    return res.redirect("/tienda/mostrar/" + tienda._id);
-  });
+router.get("/borrar", async function (req, res) {
+  const tienda = await Tienda.findOne({usuario: req.user});
+  if (!tienda) {
+    return res.redirect("/");
+  } else {
+    const categorias = await Categoria.find({ tienda: tienda._id });
+    Articulo.deleteMany({ categoria: categorias._id }, function (err, articulos) {
+      if (err) throw err;
+    });
+    Subcategoria.deleteMany({ categoria: categorias._id }, function (
+      err,
+      subcategorias
+    ) {
+      if (err) throw err;
+    });
+    Categoria.deleteMany({ tienda: tienda.id }, function (err, subcategorias) {
+      if (err) throw err;
+    });
+    tienda.remove((err) => {
+      if (err) throw err;
+      return res.redirect("/");
+    });
+  }
 });
 
 module.exports = router;

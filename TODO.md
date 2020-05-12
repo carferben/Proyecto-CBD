@@ -1,6 +1,6 @@
 ```
 (●'◡'●)      
-(つ .  )つ🌯 
+(つ .  )つ❤🌯 
 
 (●'◡'●)
 (つ .  )つ❤🥔
@@ -20,15 +20,15 @@
 - [x] Meter confirmar contraseña en el registro y términos y condiciones
 - [x] Buscador de tiendas
 - [x] Desplegar en heroku ¿?
-
-## Tareas por hacer
----
-- [ ] Login
-- [ ] DNI: Al editar un usuario
+- [x] Login
+- [x] DNI: Al editar un usuario
 - [x] Correo: Editar un usuario y editar/crear una tienda
-- [ ] Código postal: Al editar/crear una tienda
-- [ ] No me deja crear una tienda con un nombre que ya exista (ss)
+- [x] Código postal: Al editar/crear una tienda
+- [x] No me deja crear una tienda con un nombre que ya exista (ss)
 - [x] Cambiar los botones de volver para atras de los formularios
 - [x] Tamaño máximo: Descripción 250 - nombre categoria o subcategoria 20 - demas 40 - nombre de usuario 20
 - [x] lugar de fabricación, material y tallas deben se obligatorios, peta si no los rellenas (editar/crear artículo)
 - [x] Poner boton de volver para atrás en los términos y condiciones
+
+## Tareas por hacer
+---

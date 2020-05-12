@@ -64,7 +64,7 @@ block content
                         p Si la eliminas se borrar todos los artículos que tenga relacionados.
                       div.modal-footer
                         a.cancel.btn(type='button' data-dismiss='modal') Cancelar
-                        a.btn.delete(href='/subcategoria/borrar/' + subcategoria.id + '/' + tienda.id + '/' + categoria.id  role="button") Borrar
+                        a.btn.delete(href='/subcategoria/borrar/' + subcategoria.id  role="button") Borrar
 
               if !subcategoria
                 div.text-right
@@ -85,7 +85,7 @@ block content
                         p Si la eliminas se borrar todas las subcategorías y artículos que tenga relacionados.
                       div.modal-footer
                         a.cancel.btn(type='button' data-dismiss='modal') Cancelar
-                        a.btn.delete(href='/categoria/borrar/' + categoria.id + '/' + tienda.id role="button") Borrar
+                        a.btn.delete(href='/categoria/borrar/' + categoria.id role="button") Borrar
 
 
 
