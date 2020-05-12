@@ -38,7 +38,7 @@ router.get("/mostrar/:id", (req, res) => {
 
 router.get("/crear", async function (req, res){
   const tienda = await Tienda.find({usuario: req.user._id});
-  if (!req.user || req.user.rol != "TIENDA" || tienda != null) return res.redirect("/");
+  if (!req.user || req.user.rol != "TIENDA" || !tienda) return res.redirect("/");
   else res.render("tienda/crear", { message: "" });
 });
 
