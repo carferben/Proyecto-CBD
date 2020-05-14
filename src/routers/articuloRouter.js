@@ -188,13 +188,13 @@ router.post("/editar/:articulo/:categoria", function (req, res) {
         articulo.precio = req.body.precio;
         articulo.lugar_de_fabricacion = req.body.lugar_de_fabricacion;
         articulo.tallas = req.body.tallas;
-        Subcategoria.find({nombre:req.body.subcategoria}, async function (err, subcategoria) {
+        console.log("ddddd" + articulo.subcategoria);
+        Subcategoria.findById(articulo.subcategoria, async function (err, subcategoria) {
           if (err) {
             throw err;
           } else {
-            console.log(subcategoria);
-            articulo.subcategoria = subcategoria[0]._id;
-            articulo.categoria = subcategoria[0].categoria._id;
+            articulo.subcategoria = subcategoria;
+            articulo.categoria = subcategoria.categoria._id;
             var tienda = await Tienda.findOne({ usuario: req.user.id });
 
             articulo.save(function (err) {
@@ -234,14 +234,24 @@ router.get("/mostrar/:articulo/:tienda", async function (req, res) {
   });
 });
 
-router.get("/borrar/:articulo/:tienda/:categoria", async function (req, res) {
+router.get("/borrar/:articulo", async function (req, res) {
   const articulo = await Articulo.findById(req.params.articulo);
-  const tienda = await Tienda.findById(req.params.tienda);
-  const categoria = await Categoria.findById(req.params.categoria);
-  articulo.remove(err => { 
-    if (err) throw err;
-      return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
-  });
+  const tienda = await Tienda.findOne({usuario: req.user});
+  if (!articulo || !tienda) {
+    return res.redirect("/");
+  } else {
+    const categoria = await Categoria.findById(articulo.categoria);
+    var categoria_tienda = categoria.tienda;
+    var tienda_id = tienda._id;
+    if(!categoria_tienda.equals(tienda_id)) {
+      return res.redirect("/");
+    } else {
+      articulo.remove(err => { 
+        if (err) throw err; 
+          return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
+      });
+    }
+  }
 });
 
 module.exports = router;

@@ -80,17 +80,27 @@ router.post("/editar/:id", function (req, res) {
   }
 });
 
-router.get("/borrar/:subcategoria/:tienda/:categoria", async function (req, res) {
-  const tienda = await Tienda.findById(req.params.tienda);
-  const categoria = await Categoria.findById(req.params.categoria);
+router.get("/borrar/:subcategoria", async function (req, res) {
   const subcategoria = await Subcategoria.findById(req.params.subcategoria);
-  Articulo.deleteMany({subcategoria:subcategoria}, function (err, articulos) {
-    if (err) throw err;
-  });
-  subcategoria.remove(err => { 
-    if (err) throw err;
-    return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
-  });
+  const tienda = await Tienda.findOne({usuario: req.user});
+  if (!subcategoria || !tienda) {
+    return res.redirect("/");
+  } else {
+    const categoria = await Categoria.findById(subcategoria.categoria);
+    var categoria_tienda = categoria.tienda;
+    var tienda_id = tienda._id;
+    if(!categoria_tienda.equals(tienda_id)) {
+      return res.redirect("/");
+    } else {
+      Articulo.deleteMany({subcategoria:subcategoria}, function (err, articulos) {
+        if (err) throw err;
+      });
+      subcategoria.remove(err => { 
+        if (err) throw err;
+        return res.redirect("/articulo/listar/" + tienda._id + "/" + categoria._id);
+      });
+    }
+  }
 });
 
 module.exports = router;
