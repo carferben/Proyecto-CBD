@@ -1,6 +1,8 @@
-# Catálogo Online - Complementos de Bases de Datos - US
+# Catálogos Online - Complementos de Bases de Datos - US
 
-(Poner un resumen del proyecto)
+Este proyecto nace con el propósito de crear una aplicación web donde propietarios de pequeños comercios puedan publicitar su tienda, así como sus artículos. De esta forma los clientes podrán ver el stock de las diferentes tiendas registradas en lugar de tener que ir a esta físicamente.
+
+Para el desarrollo de esta aplicación se ha hecho uso de MongoDB como base de datos, como entorno de ejecución se ha utilizado NodeJS junto a su módulo Express para configurar el servidor de backend.
 
 ## Autores 2019-2020
 Fernández Benjumea, Carmen
